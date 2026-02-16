@@ -9,8 +9,10 @@
 	let errors: Record<string, string> = $state({});
 	let submitted = $state(false);
 	let success = $state(false);
+	let sending = $state(false);
+	let errorMessage = $state('');
 
-	function handleSubmit(e: SubmitEvent) {
+	async function handleSubmit(e: SubmitEvent) {
 		e.preventDefault();
 		submitted = true;
 
@@ -30,16 +32,37 @@
 		}
 
 		errors = {};
-		success = true;
-		name = '';
-		email = '';
-		subject = '';
-		message = '';
+		sending = true;
+		errorMessage = '';
 
-		setTimeout(() => {
-			success = false;
-			submitted = false;
-		}, 5000);
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'content-type': 'application/json' },
+				body: JSON.stringify(formData)
+			});
+
+			const data = await response.json();
+
+			if (response.ok) {
+				success = true;
+				name = '';
+				email = '';
+				subject = '';
+				message = '';
+
+				setTimeout(() => {
+					success = false;
+					submitted = false;
+				}, 5000);
+			} else {
+				errorMessage = data?.error || 'Failed to send message. Please try again.';
+			}
+		} catch {
+			errorMessage = 'Something went wrong. Please try again.';
+		} finally {
+			sending = false;
+		}
 	}
 </script>
 
@@ -113,6 +136,14 @@
 						<p class="font-medium text-teal">Thank you! We'll be in touch soon.</p>
 					</div>
 				{:else}
+					{#if errorMessage}
+						<div class="mb-5 flex items-center gap-3 rounded-xl border border-red-400/20 bg-red-400/5 p-8">
+							<svg class="h-6 w-6 shrink-0 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+							</svg>
+							<p class="font-medium text-red-400">{errorMessage}</p>
+						</div>
+					{/if}
 					<form onsubmit={handleSubmit} class="space-y-5" novalidate>
 						<div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
 							<div>
@@ -121,8 +152,9 @@
 									id="contact-name"
 									type="text"
 									bind:value={name}
+									disabled={sending}
 									placeholder="Your name"
-									class="w-full rounded-full border border-divider bg-field px-4 py-3.5 text-secondary placeholder-faint outline-none transition-all duration-300 focus:border-teal/50 focus:bg-field-focus focus:ring-1 focus:ring-teal/30"
+									class="w-full rounded-full border border-divider bg-field px-4 py-3.5 text-secondary placeholder-faint outline-none transition-all duration-300 focus:border-teal/50 focus:bg-field-focus focus:ring-1 focus:ring-teal/30 disabled:opacity-50"
 								/>
 								{#if submitted && errors.name}
 									<p class="mt-1.5 text-sm text-red-400">{errors.name}</p>
@@ -134,8 +166,9 @@
 									id="contact-email"
 									type="email"
 									bind:value={email}
+									disabled={sending}
 									placeholder="your@email.com"
-									class="w-full rounded-full border border-divider bg-field px-4 py-3.5 text-secondary placeholder-faint outline-none transition-all duration-300 focus:border-teal/50 focus:bg-field-focus focus:ring-1 focus:ring-teal/30"
+									class="w-full rounded-full border border-divider bg-field px-4 py-3.5 text-secondary placeholder-faint outline-none transition-all duration-300 focus:border-teal/50 focus:bg-field-focus focus:ring-1 focus:ring-teal/30 disabled:opacity-50"
 								/>
 								{#if submitted && errors.email}
 									<p class="mt-1.5 text-sm text-red-400">{errors.email}</p>
@@ -149,8 +182,9 @@
 								id="contact-subject"
 								type="text"
 								bind:value={subject}
+								disabled={sending}
 								placeholder="How can we help?"
-								class="w-full rounded-full border border-divider bg-field px-4 py-3.5 text-secondary placeholder-faint outline-none transition-all duration-300 focus:border-teal/50 focus:bg-field-focus focus:ring-1 focus:ring-teal/30"
+								class="w-full rounded-full border border-divider bg-field px-4 py-3.5 text-secondary placeholder-faint outline-none transition-all duration-300 focus:border-teal/50 focus:bg-field-focus focus:ring-1 focus:ring-teal/30 disabled:opacity-50"
 							/>
 							{#if submitted && errors.subject}
 								<p class="mt-1.5 text-sm text-red-400">{errors.subject}</p>
@@ -162,9 +196,10 @@
 							<textarea
 								id="contact-message"
 								bind:value={message}
+								disabled={sending}
 								placeholder="Tell us about your project..."
 								rows="5"
-								class="w-full resize-none rounded-3xl border border-divider bg-field px-4 py-3.5 text-secondary placeholder-faint outline-none transition-all duration-300 focus:border-teal/50 focus:bg-field-focus focus:ring-1 focus:ring-teal/30"
+								class="w-full resize-none rounded-3xl border border-divider bg-field px-4 py-3.5 text-secondary placeholder-faint outline-none transition-all duration-300 focus:border-teal/50 focus:bg-field-focus focus:ring-1 focus:ring-teal/30 disabled:opacity-50"
 							></textarea>
 							{#if submitted && errors.message}
 								<p class="mt-1.5 text-sm text-red-400">{errors.message}</p>
@@ -173,12 +208,17 @@
 
 						<button
 							type="submit"
-							class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-teal py-4 font-semibold text-navy-dark transition-all duration-300 hover:bg-teal-light hover:shadow-lg hover:shadow-teal/20 sm:w-auto sm:px-10"
+							disabled={sending}
+							class="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-teal py-4 font-semibold text-navy-dark transition-all duration-300 hover:bg-teal-light hover:shadow-lg hover:shadow-teal/20 disabled:opacity-50 disabled:cursor-not-allowed sm:w-auto sm:px-10"
 						>
-							Send Message
-							<svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-							</svg>
+							{#if sending}
+								Sending...
+							{:else}
+								Send Message
+								<svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+								</svg>
+							{/if}
 						</button>
 					</form>
 				{/if}
