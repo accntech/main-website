@@ -51,7 +51,7 @@
 
 					<div class="mt-4 text-center">
 						<p class="font-rajdhani font-bold text-teal text-sm uppercase tracking-widest">
-							Founder & CPA
+							Founder & CPA | Speaker & Trainer
 						</p>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 						and modern technology.
 					</p>
 					<p>
-						With deep expertise in tax compliance, business advisory, and software development, Ogie leverages AccounTech to deliver integrated solutions that help businesses streamline operations and thrive in an increasingly digital landscape.
+						With deep expertise in tax compliance, business advisory, and software development, Ogie leverages AccounTech to deliver integrated solutions that help businesses streamline operations and thrive in an increasingly digital landscape. He is also an active speaker and trainer on accounting and taxation topics, sharing practical knowledge with professionals and organizations.
 					</p>
 				</div>
 
@@ -96,6 +96,19 @@
 							<div>
 								<p class="font-rajdhani font-semibold text-heading text-sm">Educator</p>
 								<p class="text-muted text-xs leading-snug">Academic teaching in accounting and finance</p>
+							</div>
+						</div>
+
+						<div class="group flex items-start gap-3 bg-elevated/50 px-4 py-3 border border-divider-subtle rounded-xl">
+							<div class="flex justify-center items-center bg-teal/10 mt-0.5 rounded-lg w-8 h-8 shrink-0">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-teal" aria-hidden="true">
+									<path d="M8.25 4.5a3.75 3.75 0 1 1 7.5 0v8.25a3.75 3.75 0 1 1-7.5 0V4.5Z" />
+									<path d="M6 10.5a.75.75 0 0 1 .75.75v1.5a5.25 5.25 0 1 0 10.5 0v-1.5a.75.75 0 0 1 1.5 0v1.5a6.751 6.751 0 0 1-6 6.709v2.291h3a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1 0-1.5h3v-2.291a6.751 6.751 0 0 1-6-6.709v-1.5A.75.75 0 0 1 6 10.5Z" />
+								</svg>
+							</div>
+							<div>
+								<p class="font-rajdhani font-semibold text-heading text-sm">Speaker & Trainer</p>
+								<p class="text-muted text-xs leading-snug">Accounting and tax seminars & workshops</p>
 							</div>
 						</div>
 
@@ -135,7 +148,7 @@
 							</div>
 						</div>
 
-						<div class="group flex items-start gap-3 sm:col-span-2 bg-elevated/50 px-4 py-3 border border-divider-subtle rounded-xl">
+						<div class="group flex items-start gap-3 bg-elevated/50 px-4 py-3 border border-divider-subtle rounded-xl">
 							<div class="flex justify-center items-center bg-teal/10 mt-0.5 rounded-lg w-8 h-8 shrink-0">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-teal" aria-hidden="true">
 									<path d="M11.584 2.376a.75.75 0 0 1 .832 0l9 6a.75.75 0 1 1-.832 1.248L12 3.901 3.416 9.624a.75.75 0 0 1-.832-1.248l9-6Z" />
