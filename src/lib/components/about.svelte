@@ -68,16 +68,14 @@
 
 				<p class="mt-2 text-teal/80 text-lg">Certified Public Accountant</p>
 
-				<div class="space-y-4 mt-8 text-base leading-relaxed">
+				<div class="space-y-4 mt-8 leading-relaxed">
 					<p>
 						A licensed Certified Public Accountant in the Philippines, Ogie Galicia founded
-						Accountech with a vision to bridge the gap between traditional accounting practices
+						AccounTech with a vision to bridge the gap between traditional accounting practices
 						and modern technology.
 					</p>
 					<p>
-						With expertise spanning tax compliance, business advisory, and software development,
-						Accountech delivers holistic solutions that empower businesses to operate efficiently
-						in the digital era.
+						With deep expertise in tax compliance, business advisory, and software development, Ogie leverages AccounTech to deliver integrated solutions that help businesses streamline operations and thrive in an increasingly digital landscape.
 					</p>
 				</div>
 
