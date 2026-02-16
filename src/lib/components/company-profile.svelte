@@ -16,6 +16,9 @@
 			<h2 class="mt-3 font-rajdhani font-bold text-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
 				Company Profile
 			</h2>
+			<p class="mt-2 font-rajdhani font-semibold text-teal text-lg sm:text-xl">
+				AccounTech Business Management Services
+			</p>
 			<p class="mt-4 max-w-lg text-body text-lg">
 				Rooted in Oriental Mindoro since 2017, delivering quality accounting, audit, tax compliance, and system development services.
 			</p>

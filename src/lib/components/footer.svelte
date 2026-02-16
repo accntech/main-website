@@ -55,7 +55,7 @@
 
 		<div class="mt-12 pt-8 border-divider-subtle border-t">
 			<p class="text-faint text-xs sm:text-left text-center">
-				&copy; {currentYear} Accountech. All rights reserved.
+				&copy; {currentYear} AccounTech. All rights reserved.
 			</p>
 		</div>
 	</div>
