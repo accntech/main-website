@@ -171,7 +171,7 @@
 		<div class="shrink-0">
 			<img
 				src="https://res.cloudinary.com/accountech/image/upload/c_crop,g_face,w_500,h_500/v1771235077/iuatksezjs7zfdgobo1m.png"
-				alt="Ogie Galicia"
+				alt="Ogie Galicia, CPA — Founder of AccounTech"
 				class="rounded-full ring-3 ring-teal/40 ring-offset-3 ring-offset-base sm:ring-offset-4 w-24 sm:w-32 h-24 sm:h-32 object-cover"
 			/>
 		</div>

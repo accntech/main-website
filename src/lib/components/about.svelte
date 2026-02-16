@@ -33,7 +33,7 @@
 					<div class="relative bg-elevated w-full aspect-3/4 overflow-hidden about-mask">
 						<img
 							src="https://res.cloudinary.com/accountech/image/upload/v1771235077/iuatksezjs7zfdgobo1m.png"
-							alt="Ogie Galicia"
+							alt="Ogie Galicia, CPA — Founder of AccounTech"
 							class="w-full h-full object-cover"
 						/>
 
