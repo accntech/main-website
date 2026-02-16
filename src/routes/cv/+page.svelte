@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { toggleMode } from 'mode-watcher';
+	import Seo from '$lib/components/seo.svelte';
 
 	const experience = [
 		{
@@ -79,15 +80,41 @@
 			detail: ''
 		}
 	] as const;
+
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'ProfilePage',
+		mainEntity: {
+			'@type': 'Person',
+			name: 'Ogie Galicia',
+			jobTitle: 'Certified Public Accountant',
+			image:
+				'https://res.cloudinary.com/accountech/image/upload/c_crop,g_face,w_500,h_500/v1771235077/iuatksezjs7zfdgobo1m.png',
+			url: 'https://accountech.dev/cv',
+			worksFor: {
+				'@type': 'Organization',
+				name: 'AccounTech Business Management Services',
+				url: 'https://accountech.dev'
+			},
+			alumniOf: {
+				'@type': 'CollegeOrUniversity',
+				name: 'Lyceum of the Philippines University — Batangas'
+			},
+			sameAs: [
+				'https://facebook.com/ogiegalicia',
+				'https://github.com/cpa-coder'
+			]
+		}
+	};
 </script>
 
-<svelte:head>
-	<title>Ogie Galicia &mdash; CV</title>
-	<meta
-		name="description"
-		content="Curriculum vitae of Ogie Galicia, Certified Public Accountant and tech entrepreneur from the Philippines."
-	/>
-</svelte:head>
+<Seo
+	title="Ogie Galicia — CV | AccounTech"
+	description="Curriculum vitae of Ogie Galicia, Certified Public Accountant and tech entrepreneur from the Philippines."
+	ogType="profile"
+	ogImage="https://res.cloudinary.com/accountech/image/upload/c_crop,g_face,w_500,h_500/v1771235077/iuatksezjs7zfdgobo1m.png"
+	{jsonLd}
+/>
 
 <!-- Top bar -->
 <header class="top-0 left-0 z-50 fixed bg-base-95 backdrop-blur-xl border-divider-subtle border-b w-full">
