@@ -52,6 +52,11 @@
 							style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(6,182,212,0.4) 2px, rgba(6,182,212,0.4) 3px);"
 						></div>
 
+						<!-- Bottom fade -->
+						<div
+							class="pointer-events-none absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-base to-transparent"
+							aria-hidden="true"
+						></div>
 					</div>
 
 					<!-- Bottom label (outside mask) -->
