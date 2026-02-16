@@ -236,7 +236,7 @@
 						{item.year}
 					</span>
 					<span class="sm:hidden block mb-1 font-rajdhani font-bold text-teal text-xs">{item.year}</span>
-					<h3 class="font-semibold text-heading text-sm sm:text-base leading-snug">{item.title}</h3>
+					<h3 class="font-semibold text-heading text-sm leading-snug">{item.title}</h3>
 					<p class="mt-0.5 text-body text-xs sm:text-sm">{item.org}</p>
 					<p class="mt-0.5 text-muted text-xs">{item.location}</p>
 				</div>
@@ -259,7 +259,7 @@
 						{item.year}
 					</span>
 					<span class="sm:hidden block mb-1 font-rajdhani font-bold text-teal text-xs">{item.year}</span>
-					<h3 class="font-semibold text-heading text-sm sm:text-base leading-snug">{item.title}</h3>
+					<h3 class="font-semibold text-heading text-sm leading-snug">{item.title}</h3>
 					<p class="mt-0.5 text-body text-xs sm:text-sm">{item.org}</p>
 				</div>
 			{/each}
@@ -281,7 +281,7 @@
 						{item.year}
 					</span>
 					<span class="sm:hidden block mb-1 font-rajdhani font-bold text-teal text-xs">{item.year}</span>
-					<h3 class="font-semibold text-heading text-sm sm:text-base leading-snug">{item.title}</h3>
+					<h3 class="font-semibold text-heading text-sm leading-snug">{item.title}</h3>
 					<p class="mt-0.5 text-body text-xs sm:text-sm">{item.org}</p>
 					<p class="mt-0.5 text-muted text-xs">{item.chapter}</p>
 				</div>
