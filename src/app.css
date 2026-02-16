@@ -1,14 +1,69 @@
 @import "tailwindcss";
 
+/* ── Light mode (default) ── */
+:root {
+	--base: #ffffff;
+	--surface: #f8fafc;
+	--elevated: #f1f5f9;
+	--heading: #0f172a;
+	--body: #475569;
+	--secondary: #334155;
+	--muted: #94a3b8;
+	--faint: #cbd5e1;
+	--divider: rgba(0, 0, 0, 0.1);
+	--divider-subtle: rgba(0, 0, 0, 0.05);
+	--field: rgba(0, 0, 0, 0.03);
+	--field-focus: rgba(0, 0, 0, 0.05);
+	--base-90: rgba(255, 255, 255, 0.9);
+	--base-95: rgba(255, 255, 255, 0.95);
+}
+
+/* ── Dark mode ── */
+.dark {
+	--base: #080d1a;
+	--surface: #0f172a;
+	--elevated: #1e293b;
+	--heading: #ffffff;
+	--body: #94a3b8;
+	--secondary: #cbd5e1;
+	--muted: #64748b;
+	--faint: #334155;
+	--divider: rgba(255, 255, 255, 0.1);
+	--divider-subtle: rgba(255, 255, 255, 0.05);
+	--field: rgba(255, 255, 255, 0.03);
+	--field-focus: rgba(255, 255, 255, 0.05);
+	--base-90: rgba(8, 13, 26, 0.9);
+	--base-95: rgba(8, 13, 26, 0.95);
+}
+
+/* ── Map raw CSS vars to Tailwind utility tokens ── */
+@theme inline {
+	--color-base: var(--base);
+	--color-surface: var(--surface);
+	--color-elevated: var(--elevated);
+	--color-heading: var(--heading);
+	--color-body: var(--body);
+	--color-secondary: var(--secondary);
+	--color-muted: var(--muted);
+	--color-faint: var(--faint);
+	--color-divider: var(--divider);
+	--color-divider-subtle: var(--divider-subtle);
+	--color-field: var(--field);
+	--color-field-focus: var(--field-focus);
+	--color-base-90: var(--base-90);
+	--color-base-95: var(--base-95);
+}
+
+/* ── Static brand colors ── */
 @theme {
 	--color-navy: #0f172a;
-	--color-navy-dark: #0a0f1e;
+	--color-navy-dark: #080d1a;
 	--color-navy-light: #1e293b;
 	--color-teal: #06b6d4;
 	--color-teal-dark: #0891b2;
 	--color-teal-light: #22d3ee;
-	--font-syne: 'Syne', sans-serif;
-	--font-outfit: 'Outfit', sans-serif;
+	--font-ibm-plex: 'IBM Plex Sans', sans-serif;
+	--font-rajdhani: 'Rajdhani', sans-serif;
 }
 
 html {
@@ -16,7 +71,12 @@ html {
 }
 
 body {
-	font-family: var(--font-outfit);
-	background-color: var(--color-navy-dark);
-	color: #cbd5e1;
+	font-family: var(--font-ibm-plex);
+	background-color: var(--base);
+	color: var(--body);
+}
+
+::selection {
+	background-color: rgba(6, 182, 212, 0.3);
+	color: #ffffff;
 }

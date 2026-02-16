@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Nav from '$lib/components/Nav.svelte';
-	import Hero from '$lib/components/Hero.svelte';
-	import Services from '$lib/components/Services.svelte';
-	import About from '$lib/components/About.svelte';
-	import Contact from '$lib/components/Contact.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import Nav from '$lib/components/nav.svelte';
+	import Hero from '$lib/components/hero.svelte';
+	import Services from '$lib/components/services.svelte';
+	import About from '$lib/components/about.svelte';
+	import Contact from '$lib/components/contact.svelte';
+	import Footer from '$lib/components/footer.svelte';
 </script>
 
 <svelte:head>
