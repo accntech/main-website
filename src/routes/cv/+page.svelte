@@ -54,8 +54,8 @@
 		{ name: 'Accounting & Financial Audit', pct: 95 },
 		{ name: 'Tax Compliance & BIR Audit', pct: 90 },
 		{ name: 'Business System Design', pct: 85 },
-		{ name: 'Database Management', pct: 80 },
-		{ name: '.NET Software Development', pct: 80 },
+		{ name: 'Database Management', pct: 90 },
+		{ name: 'Software Development', pct: 90 },
 		{ name: 'MS Office Suite', pct: 90 },
 		{ name: 'Photoshop', pct: 80 },
 		{ name: 'Illustrator', pct: 85 }
@@ -66,7 +66,7 @@
 		{ name: 'Communication', rating: 4 },
 		{ name: 'Management', rating: 4 },
 		{ name: 'Organization', rating: 4 },
-		{ name: 'Creative', rating: 4 }
+		{ name: 'Creativity', rating: 4 }
 	] as const;
 
 	const hobbies = [
