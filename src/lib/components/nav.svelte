@@ -60,6 +60,16 @@
 			</a>
 		</div>
 
+		<div class="flex items-center gap-2 md:hidden">
+			<button
+				type="button"
+				onclick={toggleMode}
+				aria-label="Toggle theme"
+				class="flex justify-center items-center rounded-full w-9 h-9 text-body hover:text-heading transition-colors duration-300"
+			>
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 3l0 18" /><path d="M12 9l4.65 -4.65" /><path d="M12 14.3l7.37 -7.37" /><path d="M12 19.6l8.85 -8.85" /></svg>
+				<span class="sr-only">Toggle theme</span>
+			</button>
 		<button
 			type="button"
 			class="md:hidden z-50 relative flex flex-col justify-center items-center gap-1.5 w-10 h-10"
@@ -86,6 +96,7 @@
 				]}
 			></span>
 		</button>
+		</div>
 	</div>
 
 	<div
@@ -105,15 +116,6 @@
 						{label}
 					</a>
 				{/each}
-				<button
-					type="button"
-					onclick={toggleMode}
-					aria-label="Toggle theme"
-					class="flex justify-center items-center rounded-full w-9 h-9 text-body hover:text-heading transition-colors duration-300"
-				>
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 3l0 18" /><path d="M12 9l4.65 -4.65" /><path d="M12 14.3l7.37 -7.37" /><path d="M12 19.6l8.85 -8.85" /></svg>
-					<span class="sr-only">Toggle theme</span>
-				</button>
 				<a
 					href="#contact"
 					class="inline-block bg-teal mt-2 px-6 py-3 rounded-full font-semibold text-navy-dark text-sm text-center"

@@ -1,19 +1,13 @@
-<script lang="ts">
-	// Presentational component
-</script>
-
 <section
 	id="hero"
 	class="relative flex items-center bg-base min-h-dvh overflow-hidden"
 >
-	<!-- Background radial gradient -->
 	<div
 		class="absolute inset-0 pointer-events-none"
 		aria-hidden="true"
 		style="background: radial-gradient(ellipse 80% 50% at 70% 40%, rgba(6, 182, 212, 0.08), transparent);"
 	></div>
 
-	<!-- Fading calculator illustration -->
 	<div class="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
 		<svg
 			class="top-1/2 right-[5%] lg:right-[8%] absolute w-md lg:w-xl xl:w-2xl h-112 lg:h-144 xl:h-168 text-teal/6 -translate-y-1/2 hero-calc"
@@ -24,34 +18,26 @@
 			stroke-linecap="round"
 			stroke-linejoin="round"
 		>
-			<!-- Body -->
 			<rect x="10" y="5" width="100" height="150" rx="8" />
-			<!-- Screen -->
 			<rect x="20" y="15" width="80" height="30" rx="4" />
-			<!-- Screen text -->
 			<text x="90" y="38" font-family="var(--font-rajdhani)" font-size="16" fill="currentColor" stroke="none" text-anchor="end">1,024.00</text>
-			<!-- Row 1 -->
 			<rect x="20" y="55" width="16" height="16" rx="3" />
 			<rect x="42" y="55" width="16" height="16" rx="3" />
 			<rect x="64" y="55" width="16" height="16" rx="3" />
 			<rect x="86" y="55" width="14" height="16" rx="3" />
-			<!-- Row 2 -->
 			<rect x="20" y="78" width="16" height="16" rx="3" />
 			<rect x="42" y="78" width="16" height="16" rx="3" />
 			<rect x="64" y="78" width="16" height="16" rx="3" />
 			<rect x="86" y="78" width="14" height="16" rx="3" />
-			<!-- Row 3 -->
 			<rect x="20" y="101" width="16" height="16" rx="3" />
 			<rect x="42" y="101" width="16" height="16" rx="3" />
 			<rect x="64" y="101" width="16" height="16" rx="3" />
 			<rect x="86" y="101" width="14" height="38" rx="3" />
-			<!-- Row 4 -->
 			<rect x="20" y="124" width="38" height="16" rx="3" />
 			<rect x="64" y="124" width="16" height="16" rx="3" />
 		</svg>
 	</div>
 
-	<!-- Floating geometric elements -->
 	<div class="hidden sm:block absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
 		<div class="top-1/4 -right-32 hero-float-slow absolute border border-teal/10 rounded-full w-96 h-96"></div>
 		<div class="top-1/3 right-20 hero-float-medium absolute border border-teal/5 rounded-full w-48 h-48"></div>
@@ -62,10 +48,8 @@
 		<div class="top-0 right-1/3 absolute bg-linear-to-b from-transparent via-teal/10 to-transparent w-px h-2/3"></div>
 	</div>
 
-	<!-- Content -->
 	<div class="z-10 relative mx-auto px-5 sm:px-6 py-24 sm:py-32 w-full max-w-7xl">
 		<div class="max-w-3xl">
-			<!-- Eyebrow badge -->
 			<div class="hero-animate" style="animation-delay: 0ms">
 				<span class="inline-flex items-center gap-2 bg-teal/5 px-4 py-1.5 border border-teal/20 rounded-full font-medium text-teal text-xs uppercase tracking-widest">
 					<span class="bg-teal rounded-full w-1.5 h-1.5 animate-pulse"></span>
@@ -73,7 +57,6 @@
 				</span>
 			</div>
 
-			<!-- Main heading -->
 			<h1
 				class="mt-6 sm:mt-8 font-rajdhani font-bold text-[2.5rem] text-heading sm:text-6xl lg:text-7xl xl:text-8xl leading-[1.3] sm:leading-[1.15] hero-animate"
 				style="animation-delay: 150ms"
@@ -86,7 +69,6 @@
 				</span>
 			</h1>
 
-			<!-- Subtext -->
 			<p
 				class="mt-5 sm:mt-6 max-w-xl text-body sm:text-lg md:text-xl leading-relaxed hero-animate"
 				style="animation-delay: 300ms"
@@ -95,7 +77,6 @@
 				to help businesses thrive in the digital age.
 			</p>
 
-			<!-- CTA buttons -->
 			<div
 				class="flex sm:flex-row flex-col sm:items-center gap-3 sm:gap-4 mt-8 sm:mt-10 hero-animate"
 				style="animation-delay: 450ms"
@@ -118,7 +99,6 @@
 			</div>
 		</div>
 
-		<!-- Stats strip -->
 		<div
 			class="gap-4 sm:gap-8 grid grid-cols-3 mt-14 sm:mt-20 pt-8 sm:pt-10 border-divider-subtle border-t max-w-lg hero-animate"
 			style="animation-delay: 600ms"

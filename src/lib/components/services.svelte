@@ -47,7 +47,6 @@
 	></div>
 
 	<div class="relative mx-auto max-w-6xl">
-		<!-- Section header -->
 		<div class="mb-12 sm:mb-20">
 			<span class="font-rajdhani font-bold text-teal text-sm uppercase tracking-widest">What We Do</span>
 			<h2 class="mt-3 font-rajdhani font-bold text-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
@@ -58,16 +57,13 @@
 			</p>
 		</div>
 
-		<!-- Service grid -->
 		<div class="gap-px grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 bg-divider-subtle border border-divider-subtle rounded-2xl overflow-hidden">
 			{#each services as service (service.num)}
 				<div class="group relative bg-surface hover:bg-elevated p-5 sm:p-8 transition-all duration-500 service-cell">
-					<!-- Watermark number -->
 					<span class="top-4 right-6 absolute font-rajdhani font-bold text-white/4 group-hover:text-teal/10 text-5xl transition-all duration-500 pointer-events-none select-none">
 						{service.num}
 					</span>
 
-					<!-- Icon -->
 					<div class="mb-6 text-teal/70 group-hover:text-teal transition-colors duration-300">
 						{#if service.icon === 'clipboard'}
 							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -108,17 +104,14 @@
 						{/if}
 					</div>
 
-					<!-- Title -->
 					<h3 class="mb-3 font-rajdhani font-bold text-heading text-lg">
 						{service.title}
 					</h3>
 
-					<!-- Description -->
 					<p class="text-body text-sm leading-relaxed">
 						{service.description}
 					</p>
 
-					<!-- Hover accent line -->
 					<div class="bottom-0 left-0 absolute bg-linear-to-r from-teal to-teal-light w-0 group-hover:w-full h-px transition-all duration-500"></div>
 				</div>
 			{/each}

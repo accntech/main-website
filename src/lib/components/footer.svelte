@@ -9,30 +9,27 @@
 </script>
 
 <footer class="relative bg-base">
-	<!-- Top gradient line -->
-	<div class="h-px bg-gradient-to-r from-transparent via-teal/30 to-transparent"></div>
+	<div class="bg-linear-to-r from-transparent via-teal/30 to-transparent h-px"></div>
 
-	<div class="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-16">
-		<div class="grid grid-cols-1 gap-12 md:grid-cols-12">
-			<!-- Brand -->
+	<div class="mx-auto px-5 sm:px-6 py-10 sm:py-16 max-w-6xl">
+		<div class="gap-12 grid grid-cols-1 md:grid-cols-12">
 			<div class="md:col-span-5">
-				<a href="/" class="font-rajdhani text-xl font-bold text-heading">
+				<a href="/" class="font-rajdhani font-bold text-heading text-xl">
 					accoun<span class="text-teal">tech</span><span class="text-teal">.</span>
 				</a>
-				<p class="mt-3 max-w-xs text-sm leading-relaxed text-muted">
+				<p class="mt-3 max-w-xs text-muted text-sm leading-relaxed">
 					Where Accounting Meets Technology. Empowering businesses with integrated financial and tech solutions.
 				</p>
 			</div>
 
-			<!-- Quick Links -->
 			<div class="md:col-span-3">
-				<h3 class="text-xs font-bold uppercase tracking-widest text-body">
+				<h3 class="font-bold text-body text-xs uppercase tracking-widest">
 					Navigation
 				</h3>
-				<ul class="mt-4 space-y-3">
+				<ul class="space-y-3 mt-4">
 					{#each quickLinks as { label, href } (href)}
 						<li>
-							<a {href} class="text-sm text-muted transition-colors duration-200 hover:text-teal">
+							<a {href} class="text-muted hover:text-teal text-sm transition-colors duration-200">
 								{label}
 							</a>
 						</li>
@@ -40,14 +37,13 @@
 				</ul>
 			</div>
 
-			<!-- Contact -->
 			<div class="md:col-span-4">
-				<h3 class="text-xs font-bold uppercase tracking-widest text-body">
+				<h3 class="font-bold text-body text-xs uppercase tracking-widest">
 					Contact
 				</h3>
-				<ul class="mt-4 space-y-3 text-sm text-muted">
+				<ul class="space-y-3 mt-4 text-muted text-sm">
 					<li>
-						<a href="mailto:accntech.dev@gmail.com" class="transition-colors hover:text-teal">
+						<a href="mailto:accntech.dev@gmail.com" class="hover:text-teal transition-colors">
 							accntech.dev@gmail.com
 						</a>
 					</li>
@@ -57,9 +53,8 @@
 			</div>
 		</div>
 
-		<!-- Bottom bar -->
-		<div class="mt-12 border-t border-divider-subtle pt-8">
-			<p class="text-center text-xs text-faint sm:text-left">
+		<div class="mt-12 pt-8 border-divider-subtle border-t">
+			<p class="text-faint text-xs sm:text-left text-center">
 				&copy; {currentYear} Accountech. All rights reserved.
 			</p>
 		</div>

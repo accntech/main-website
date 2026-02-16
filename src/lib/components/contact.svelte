@@ -51,7 +51,6 @@
 	></div>
 
 	<div class="relative mx-auto max-w-6xl">
-		<!-- Section header -->
 		<div class="mb-10 sm:mb-16">
 			<span class="font-rajdhani text-sm font-bold tracking-widest text-teal uppercase">Contact</span>
 			<h2 class="mt-3 font-rajdhani text-3xl font-bold text-heading sm:text-4xl md:text-5xl lg:text-6xl">
@@ -63,9 +62,7 @@
 		</div>
 
 		<div class="grid grid-cols-1 gap-10 sm:gap-16 lg:grid-cols-5">
-			<!-- Contact info -->
 			<div class="space-y-8 lg:col-span-2">
-				<!-- Email -->
 				<div class="flex items-start gap-4">
 					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal/10 text-teal">
 						<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -81,7 +78,6 @@
 					</div>
 				</div>
 
-				<!-- Phone -->
 				<div class="flex items-start gap-4">
 					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal/10 text-teal">
 						<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -94,7 +90,6 @@
 					</div>
 				</div>
 
-				<!-- Address -->
 				<div class="flex items-start gap-4">
 					<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal/10 text-teal">
 						<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -109,7 +104,6 @@
 				</div>
 			</div>
 
-			<!-- Form -->
 			<div class="lg:col-span-3">
 				{#if success}
 					<div class="flex items-center gap-3 rounded-xl border border-teal/20 bg-teal/5 p-8">
