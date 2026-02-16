@@ -1,6 +1,7 @@
 <script lang="ts">
 	const quickLinks = [
 		{ label: 'Services', href: '#services' },
+		{ label: 'Company', href: '#company' },
 		{ label: 'About', href: '#about' },
 		{ label: 'Contact', href: '#contact' }
 	] as const;
