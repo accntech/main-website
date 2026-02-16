@@ -6,6 +6,7 @@
 	import About from '$lib/components/about.svelte';
 	import Contact from '$lib/components/contact.svelte';
 	import Footer from '$lib/components/footer.svelte';
+	import Seo from '$lib/components/seo.svelte';
 
 	const jsonLd = {
 		'@context': 'https://schema.org',
@@ -30,6 +31,10 @@
 				},
 				telephone: '+63-995-294-2417',
 				email: 'accntech.dev@gmail.com',
+				sameAs: [
+					'https://facebook.com/ogiegalicia',
+					'https://github.com/cpa-coder'
+				],
 				founder: { '@id': 'https://accountech.dev/#founder' },
 				areaServed: {
 					'@type': 'AdministrativeArea',
@@ -91,12 +96,11 @@
 	};
 </script>
 
-<svelte:head>
-	<title>Accountech | Accounting & Technology Solutions</title>
-	<meta name="description" content="Accountech - Where Accounting Meets Technology. Tax compliance, advisory, business registrations, and system development services in the Philippines." />
-	<meta name="author" content="Ogie Galicia" />
-	{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
-</svelte:head>
+<Seo
+	title="Accountech | Accounting & Technology Solutions"
+	description="Accountech - Where Accounting Meets Technology. Tax compliance, advisory, business registrations, and system development services in the Philippines."
+	{jsonLd}
+/>
 
 <Nav />
 <main>
