@@ -17,6 +17,13 @@
 				'Generate BIR-compliant VAT relief DAT files and reconciliation reports from your Excel template.',
 			href: '/apps/vat-relief',
 			icon: 'file' as const
+		},
+		{
+			title: 'Top Withholding Agents',
+			description:
+				'Searchable directory of BIR-designated Top Withholding Agents with filtering by name, RDO, type, status, and date.',
+			href: '/apps/top-withholding-agents',
+			icon: 'list' as const
 		}
 	];
 </script>
@@ -57,6 +64,15 @@
 								<line x1="8" y1="2" x2="8" y2="6" />
 								<line x1="3" y1="10" x2="21" y2="10" />
 								<rect x="8" y="14" width="3" height="3" rx="0.5" />
+							</svg>
+						{:else if app.icon === 'list'}
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="text-teal">
+								<line x1="8" y1="6" x2="21" y2="6" />
+								<line x1="8" y1="12" x2="21" y2="12" />
+								<line x1="8" y1="18" x2="21" y2="18" />
+								<line x1="3" y1="6" x2="3.01" y2="6" />
+								<line x1="3" y1="12" x2="3.01" y2="12" />
+								<line x1="3" y1="18" x2="3.01" y2="18" />
 							</svg>
 						{:else}
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="text-teal">
