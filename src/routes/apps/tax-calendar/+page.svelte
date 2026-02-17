@@ -14,6 +14,7 @@
 	let currentMonth = $state(new Date().getMonth());
 	const currentYear = 2026;
 	let selectedDate = $state<string | null>(null);
+	let shouldScrollToPanel = $state(false);
 	let searchQuery = $state('');
 	let activeFilters: SvelteSet<ActionType> = new SvelteSet();
 
@@ -86,6 +87,7 @@
 
 	function selectDate(date: string) {
 		selectedDate = date;
+		shouldScrollToPanel = true;
 		const month = parseInt(date.split('-')[1], 10) - 1;
 		if (month !== currentMonth) currentMonth = month;
 	}
@@ -108,7 +110,8 @@
 	}
 
 	$effect(() => {
-		if (selectedDate && typeof window !== 'undefined') {
+		if (selectedDate && shouldScrollToPanel && typeof window !== 'undefined') {
+			shouldScrollToPanel = false;
 			const isSmall = window.innerWidth < 1024;
 			if (isSmall) {
 				const el = document.getElementById('deadline-panel');
@@ -128,9 +131,10 @@
 <Nav />
 
 <main class="bg-base min-h-screen">
-	<div class="mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-7xl">
+	<div class="relative mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-7xl">
+		<div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 50% at 70% 40%, rgba(6, 182, 212, 0.04), transparent);"></div>
 		<!-- Breadcrumb -->
-		<nav class="mb-6 text-sm" aria-label="Breadcrumb">
+		<nav class="relative mb-6 text-sm" aria-label="Breadcrumb">
 			<ol class="flex items-center gap-2 text-muted">
 				<li><a href="/apps" class="hover:text-heading transition-colors">Apps</a></li>
 				<li class="text-faint">/</li>
@@ -139,11 +143,13 @@
 		</nav>
 
 		<!-- Page header -->
-		<header class="mb-8">
-			<h1 class="font-rajdhani font-bold text-heading text-3xl sm:text-4xl">
+		<header class="relative mb-10">
+			<p class="mb-2 font-semibold text-teal text-sm uppercase tracking-widest">Tax Compliance Tool</p>
+			<h1 class="font-rajdhani font-bold text-heading text-4xl sm:text-5xl">
 				2026 BIR Tax Calendar
 			</h1>
-			<p class="text-body text-sm mt-2">
+			<div class="bg-teal mt-4 rounded-full w-16 h-1"></div>
+			<p class="text-body text-sm mt-4 max-w-2xl">
 				All BIR filing deadlines, compliance dates, and form references for the 2026 tax year.
 			</p>
 		</header>
@@ -158,7 +164,7 @@
 		/>
 
 		<!-- Main layout: 2-column on desktop, stacked on mobile -->
-		<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+		<div class="relative grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
 			<div class="lg:col-span-2">
 				<CalendarHeader
 					{currentMonth}

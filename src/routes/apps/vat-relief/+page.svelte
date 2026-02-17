@@ -181,6 +181,17 @@
 								<p class="text-muted text-xs">Get DAT files and reconciliation report</p>
 							</div>
 						</li>
+						<li class="flex gap-3">
+							<span class="flex justify-center items-center bg-teal/10 rounded-full w-7 h-7 font-bold text-teal text-xs shrink-0">4</span>
+							<div>
+								<p class="font-medium text-heading text-sm">Validate with BIR Relief</p>
+								<p class="text-muted text-xs">
+									Verify your DAT files using the official
+									<a href="https://bir-cdn.bir.gov.ph/local/pdf/BIRReliefv2.3.exe" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">BIR Relief app</a>
+									before submission
+								</p>
+							</div>
+						</li>
 					</ol>
 				</div>
 			</div>
@@ -407,6 +418,16 @@
 						</div>
 					</div>
 				{/if}
+			</div>
+		</div>
+
+		<div class="relative mt-10 text-center">
+			<div class="inline-flex items-center gap-2 text-muted text-xs">
+				<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal/60">
+					<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+					<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+				</svg>
+				<p>Your data is processed entirely on your device. AccounTech does not collect, store, or transmit any of your files or information.</p>
 			</div>
 		</div>
 	</div>

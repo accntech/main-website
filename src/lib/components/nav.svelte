@@ -56,13 +56,13 @@
 			</button>
 			<a
 				href="/#contact"
-				class="bg-teal hover:bg-teal-light hover:shadow-lg hover:shadow-teal/20 px-5 py-2 rounded-full font-semibold text-navy-dark text-sm transition-all duration-300"
+				class="bg-teal hover:bg-teal-light hover:shadow-lg hover:shadow-teal/20 px-5 py-2 rounded-full font-semibold text-navy-dark text-sm text-nowrap transition-all duration-300"
 			>
 				Get Started
 			</a>
 		</div>
 
-		<div class="flex items-center gap-2 md:hidden">
+		<div class="md:hidden flex items-center gap-2">
 			<button
 				type="button"
 				onclick={toggleMode}
@@ -120,7 +120,7 @@
 				{/each}
 				<a
 					href="/#contact"
-					class="inline-block bg-teal mt-2 px-6 py-3 rounded-full font-semibold text-navy-dark text-sm text-center"
+					class="inline-block bg-teal mt-2 px-6 py-3 rounded-full font-semibold text-navy-dark text-sm text-center text-nowrap"
 					onclick={closeMobileMenu}
 				>
 					Get Started
