@@ -3,7 +3,8 @@
 		{ label: 'Services', href: '/#services' },
 		{ label: 'Company', href: '/#company' },
 		{ label: 'About', href: '/#about' },
-		{ label: 'Contact', href: '/#contact' }
+		{ label: 'Contact', href: '/#contact' },
+		{ label: 'Apps', href: '/apps' }
 	] as const;
 
 	const currentYear = new Date().getFullYear();
