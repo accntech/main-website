@@ -46,3 +46,8 @@ Fonts: IBM Plex Sans (body) and Rajdhani (headings), loaded from Google Fonts in
 - Component filenames are lowercase (e.g., `hero.svelte`, not `Hero.svelte`)
 - Components use `<script lang="ts">` with Svelte 5 runes
 - Use `$lib/` alias for imports from `src/lib/`
+
+## Git Policy
+
+- **Do not commit changes** — never run `git commit` unless the user explicitly asks
+- **Do not add co-author lines** — never include `Co-Authored-By` in commit messages
