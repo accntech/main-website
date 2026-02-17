@@ -27,9 +27,9 @@
 			icon: 'list' as const
 		},
 		{
-			title: 'Libro',
+			title: 'Libro (alpha)',
 			description:
-				'Simplify your bookkeeping — record journal entries, track your general ledger, generate trial balances, and produce balance sheets in minutes. Collaborate with your team and share reports seamlessly.',
+				'Simplify your bookkeeping — record journal entries, track your general ledger, generate trial balances, and produce balance sheets in minutes. Currently in alpha: features may change and data may be reset as we refine the experience.',
 			href: 'https://libro-app.com/',
 			icon: 'book' as const,
 			external: true,
@@ -48,7 +48,7 @@
 <main class="bg-base min-h-screen">
 	<div class="mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-7xl">
 		<header class="mb-14">
-			<p class="mb-2 font-semibold text-sm text-teal tracking-widest uppercase">
+			<p class="mb-2 font-semibold text-teal text-sm uppercase tracking-widest">
 				Tools &amp; Resources
 			</p>
 			<h1 class="font-rajdhani font-bold text-heading text-4xl sm:text-5xl">Apps</h1>
