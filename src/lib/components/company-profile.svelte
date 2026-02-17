@@ -24,7 +24,7 @@
 			</p>
 		</div>
 
-		<div class="flex gap-2 overflow-x-auto border-b border-divider-subtle pb-px mb-10 sm:mb-14" role="tablist" style="-webkit-overflow-scrolling: touch;">
+		<div class="flex gap-2 mb-10 sm:mb-14 pb-px border-divider-subtle border-b overflow-x-auto scrollbar-none" role="tablist" style="-webkit-overflow-scrolling: touch;">
 			{#each tabs as tab, i (tab)}
 				<button
 					type="button"
@@ -56,12 +56,12 @@
 						</div>
 					</div>
 				{:else if activeTab === 1}
-					<div class="max-w-3xl space-y-4 leading-relaxed">
+					<div class="space-y-4 max-w-3xl leading-relaxed">
 						<p>A leading provider of comprehensive business management solutions. Specializing in accounting, tax, audit, and software development services, we support businesses of varying scales, from startups to larger enterprises.</p>
 						<p>Our commitment lies in offering streamlined assistance, encompassing business registration, meticulous tax compliance, advanced accounting practices, and innovative system development, to empower businesses in today's dynamic market.</p>
 					</div>
 				{:else if activeTab === 2}
-					<div class="max-w-3xl space-y-4 leading-relaxed">
+					<div class="space-y-4 max-w-3xl leading-relaxed">
 						<p>We strive to revolutionize and optimize accounting methodologies, aiding businesses in achieving greater efficiency and accuracy in their financial operations — while alleviating the burden of governmental compliance to ensure a smoother regulatory process.</p>
 						<p>Through top-notch financial audit services and fortified business systems, we deliver comprehensive and reliable financial assessments. Our holistic financial guidance encompasses not just compliance but strategic financial planning tailored to each business's unique needs, instilling confidence and fostering deeper control over financial processes.</p>
 					</div>
