@@ -2,20 +2,20 @@
 	import { page } from '$app/state';
 </script>
 
-<div class="min-h-screen flex flex-col items-center justify-center bg-base animate-fade-in">
+<div class="flex flex-col justify-center items-center bg-base min-h-screen animate-fade-in">
 	<h1
-		class="font-[family-name:var(--font-rajdhani)] text-[8rem] sm:text-[10rem] font-bold leading-none bg-gradient-to-r from-teal to-teal-light bg-clip-text text-transparent"
+		class="bg-clip-text bg-linear-to-r from-teal to-teal-light font-rajdhani font-bold text-[8rem] text-transparent sm:text-[10rem] leading-none"
 	>
 		{page.status}
 	</h1>
 
-	<p class="mt-4 text-lg text-body">
+	<p class="mt-4 text-body text-lg">
 		{page.error?.message ?? 'Something went wrong'}
 	</p>
 
 	<a
 		href="/"
-		class="mt-8 bg-teal hover:bg-teal-dark text-white rounded-full px-8 py-3 font-medium transition-colors"
+		class="bg-teal hover:bg-teal-dark mt-8 px-8 py-3 rounded-full font-medium text-white transition-colors"
 	>
 		Back to Home
 	</a>
