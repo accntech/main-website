@@ -33,7 +33,6 @@
 		<meta name="robots" content="noindex,nofollow" />
 	{/if}
 
-	<!-- Open Graph -->
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:image" content={ogImage} />
@@ -42,17 +41,14 @@
 	<meta property="og:site_name" content="AccounTech" />
 	<meta property="og:locale" content="en_PH" />
 
-	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={ogImage} />
 
-	<!-- Geo -->
 	<meta name="geo.region" content="PH-MDR" />
 	<meta name="geo.placename" content="Oriental Mindoro" />
 
-	<!-- JSON-LD Structured Data -->
 	{#if jsonLd}
 		{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
 	{/if}

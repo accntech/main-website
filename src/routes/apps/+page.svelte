@@ -37,7 +37,6 @@
 
 <main class="bg-base min-h-screen">
 	<div class="mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-7xl">
-		<!-- Page header -->
 		<header class="mb-14">
 			<p class="mb-2 font-semibold text-sm text-teal tracking-widest uppercase">
 				Tools &amp; Resources
@@ -46,14 +45,12 @@
 			<div class="bg-teal mt-4 rounded-full w-16 h-1"></div>
 		</header>
 
-		<!-- App card grid -->
 		<div class="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 			{#each apps as app (app.href)}
 				<a
 					href={app.href}
 					class="group border border-divider-subtle bg-surface hover:border-teal/40 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-teal/5"
 				>
-					<!-- Icon -->
 					<div
 						class="flex justify-center items-center bg-teal/10 group-hover:bg-teal/15 mb-5 rounded-xl w-12 h-12 transition-colors duration-300"
 					>
@@ -85,11 +82,9 @@
 						{/if}
 					</div>
 
-					<!-- Content -->
 					<h2 class="font-rajdhani font-bold text-heading text-lg">{app.title}</h2>
 					<p class="mt-2 text-body text-sm leading-relaxed">{app.description}</p>
 
-					<!-- Arrow hint -->
 					<div
 						class="flex items-center gap-1.5 mt-4 font-medium text-sm text-teal opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1"
 					>

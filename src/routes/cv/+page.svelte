@@ -116,7 +116,6 @@
 	{jsonLd}
 />
 
-<!-- Top bar -->
 <header class="top-0 left-0 z-50 fixed bg-base-95 backdrop-blur-xl border-divider-subtle border-b w-full">
 	<div class="flex justify-between items-center mx-auto px-5 sm:px-6 py-3 max-w-4xl">
 		<a
@@ -166,7 +165,6 @@
 </header>
 
 <main class="mx-auto px-5 sm:px-6 pt-24 pb-20 max-w-4xl">
-	<!-- Profile Header -->
 	<section class="flex sm:flex-row flex-col items-center sm:items-start gap-6 sm:gap-8 cv-animate" style="animation-delay: 0ms">
 		<div class="shrink-0">
 			<img
@@ -247,10 +245,8 @@
 		</div>
 	</section>
 
-	<!-- Divider -->
 	<hr class="my-8 sm:my-10 border-divider-subtle" />
 
-	<!-- Work Experience -->
 	<section class="cv-animate" style="animation-delay: 100ms">
 		<h2 class="mb-6 font-rajdhani font-bold text-teal text-xs uppercase tracking-widest">
 			Work Experience
@@ -273,7 +269,6 @@
 
 	<hr class="my-8 sm:my-10 border-divider-subtle" />
 
-	<!-- Education -->
 	<section class="cv-animate" style="animation-delay: 200ms">
 		<h2 class="mb-6 font-rajdhani font-bold text-teal text-xs uppercase tracking-widest">
 			Education
@@ -295,7 +290,6 @@
 
 	<hr class="my-8 sm:my-10 border-divider-subtle" />
 
-	<!-- Organizational Involvement -->
 	<section class="cv-animate" style="animation-delay: 300ms">
 		<h2 class="mb-6 font-rajdhani font-bold text-teal text-xs uppercase tracking-widest">
 			Organizational Involvement
@@ -318,7 +312,6 @@
 
 	<hr class="my-8 sm:my-10 border-divider-subtle" />
 
-	<!-- Technical Skills -->
 	<section class="cv-animate" style="animation-delay: 400ms">
 		<h2 class="mb-6 font-rajdhani font-bold text-teal text-xs uppercase tracking-widest">
 			Technical Skills
@@ -343,7 +336,6 @@
 
 	<hr class="my-8 sm:my-10 border-divider-subtle" />
 
-	<!-- Personal Skills -->
 	<section class="cv-animate" style="animation-delay: 500ms">
 		<h2 class="mb-6 font-rajdhani font-bold text-teal text-xs uppercase tracking-widest">
 			Personal Skills
@@ -372,7 +364,6 @@
 
 	<hr class="my-8 sm:my-10 border-divider-subtle" />
 
-	<!-- Hobbies & Interests -->
 	<section class="cv-animate" style="animation-delay: 600ms">
 		<h2 class="mb-6 font-rajdhani font-bold text-teal text-xs uppercase tracking-widest">
 			Hobbies & Interests
@@ -392,7 +383,6 @@
 		</ul>
 	</section>
 
-	<!-- Footer -->
 	<div class="mt-16 pt-8 border-divider-subtle border-t text-center cv-animate" style="animation-delay: 700ms">
 		<p class="text-muted text-xs">
 			&copy; {new Date().getFullYear()} Ogie Galicia. Built with

@@ -11,7 +11,6 @@
 	const data: Taxpayer[] = taxpayers as Taxpayer[];
 	const pageSize = 50;
 
-	// Extract unique RDOs and dates for dropdowns (static, computed once)
 	const uniqueRdos = [...new Set(data.map((t) => t.rdo))].sort((a, b) => parseInt(a) - parseInt(b));
 	const uniqueDates = [...new Set(data.map((t) => t.date))].sort();
 	const validTypes = new Set(['all', 'Individual', 'Non-Individual']);
@@ -20,7 +19,6 @@
 	const validDates = new Set(['all', ...uniqueDates]);
 	const validSortCols = new Set(['name', 'rdo', 'type', 'date', 'state']);
 
-	// Initialize from URL params
 	function getInitialParams() {
 		if (!browser) return {};
 		const p = new URLSearchParams(window.location.search);
@@ -38,7 +36,6 @@
 
 	const init = getInitialParams();
 
-	// Items arrays for bits-ui Select
 	const typeItems = [
 		{ value: 'all', label: 'All Types' },
 		{ value: 'Individual', label: 'Individual' },
@@ -63,7 +60,6 @@
 		return items.find((i) => i.value === value)?.label ?? '';
 	}
 
-	// Filter state
 	let searchInput = $state(init.q ?? '');
 	let debouncedSearch = $state(init.q ?? '');
 	let typeFilter = $state<'all' | 'Individual' | 'Non-Individual'>((init.type ?? 'all') as 'all' | 'Individual' | 'Non-Individual');
@@ -74,7 +70,6 @@
 	let sortDirection = $state<'asc' | 'desc'>(init.dir ?? 'asc');
 	let currentPage = $state(init.page ?? 1);
 
-	// Debounce search input
 	$effect(() => {
 		const value = searchInput;
 		const timeout = setTimeout(() => {
@@ -83,13 +78,11 @@
 		return () => clearTimeout(timeout);
 	});
 
-	// Sync state to URL
 	$effect(() => {
 		if (!browser) return;
 		const url = new URL(window.location.href);
 		const params = url.searchParams;
 
-		// Read all reactive values
 		const q = debouncedSearch;
 		const t = typeFilter;
 		const s = stateFilter;
@@ -99,7 +92,6 @@
 		const sd = sortDirection;
 		const p = currentPage;
 
-		// Set or delete params (omit defaults)
 		q ? params.set('q', q) : params.delete('q');
 		t !== 'all' ? params.set('type', t) : params.delete('type');
 		s !== 'all' ? params.set('state', s) : params.delete('state');
@@ -112,7 +104,6 @@
 		window.history.replaceState({}, '', url);
 	});
 
-	// Filtered data with fuzzy search scores
 	let filtered = $derived.by(() => {
 		let result: (Taxpayer & { _fuzzyScore?: number })[] = data;
 
@@ -141,7 +132,6 @@
 		return result;
 	});
 
-	// Reset page when filters change (but not on initial load)
 	let filtersInitialized = false;
 	$effect(() => {
 		debouncedSearch;
@@ -155,13 +145,11 @@
 		filtersInitialized = true;
 	});
 
-	// Sorted data (fuzzy score takes priority when searching)
 	let sorted = $derived.by(() => {
 		const col = sortColumn;
 		const dir = sortDirection;
 		const isSearching = !!debouncedSearch;
 		return [...filtered].sort((a, b) => {
-			// When searching, best fuzzy matches come first
 			if (isSearching) {
 				const scoreDiff = (a._fuzzyScore ?? 0) - (b._fuzzyScore ?? 0);
 				if (scoreDiff !== 0) return scoreDiff;
@@ -218,7 +206,6 @@
 		return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 	}
 
-	/** Fuzzy match: returns a score (lower = better) or -1 if no match. */
 	function fuzzyMatch(query: string, target: string): number {
 		const q = query.toLowerCase();
 		const t = target.toLowerCase();
@@ -252,7 +239,6 @@
 
 <main class="bg-base min-h-screen">
 	<div class="mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-7xl">
-		<!-- Breadcrumb -->
 		<nav class="relative mb-6 text-sm" aria-label="Breadcrumb">
 			<ol class="flex items-center gap-2 text-muted">
 				<li><a href="/apps" class="hover:text-heading transition-colors">Apps</a></li>
@@ -261,7 +247,6 @@
 			</ol>
 		</nav>
 
-		<!-- Page header -->
 		<header class="relative mb-10">
 			<p class="mb-2 font-semibold text-teal text-sm uppercase tracking-widest">BIR Reference</p>
 			<h1 class="font-rajdhani font-bold text-heading text-4xl sm:text-5xl">
@@ -278,9 +263,7 @@
 			</p>
 		</header>
 
-		<!-- Filter bar -->
 		<div class="flex flex-wrap items-center gap-3 mb-6">
-			<!-- Name search -->
 			<div class="relative">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -305,7 +288,6 @@
 				/>
 			</div>
 
-			<!-- Type dropdown -->
 			<Select.Root type="single" items={typeItems} bind:value={typeFilter}>
 				<Select.Trigger class="inline-flex items-center gap-2 bg-field px-3 py-2 border border-divider data-[state=open]:border-teal rounded-full text-heading text-sm cursor-pointer">
 					{labelFor(typeItems, typeFilter)}
@@ -324,7 +306,6 @@
 				</Select.Portal>
 			</Select.Root>
 
-			<!-- RDO dropdown -->
 			<Select.Root type="single" items={rdoItems} bind:value={rdoFilter}>
 				<Select.Trigger class="inline-flex items-center gap-2 bg-field px-3 py-2 border border-divider data-[state=open]:border-teal rounded-full max-w-64 text-heading text-sm truncate cursor-pointer">
 					<span class="truncate">{labelFor(rdoItems, rdoFilter)}</span>
@@ -349,7 +330,6 @@
 				</Select.Portal>
 			</Select.Root>
 
-			<!-- State dropdown -->
 			<Select.Root type="single" items={stateItems} bind:value={stateFilter}>
 				<Select.Trigger class="inline-flex items-center gap-2 bg-field px-3 py-2 border border-divider data-[state=open]:border-teal rounded-full text-heading text-sm cursor-pointer">
 					{labelFor(stateItems, stateFilter)}
@@ -368,7 +348,6 @@
 				</Select.Portal>
 			</Select.Root>
 
-			<!-- Date dropdown -->
 			<Select.Root type="single" items={dateItems} bind:value={dateFilter}>
 				<Select.Trigger class="inline-flex items-center gap-2 bg-field px-3 py-2 border border-divider data-[state=open]:border-teal rounded-full text-heading text-sm cursor-pointer">
 					{labelFor(dateItems, dateFilter)}
@@ -387,7 +366,6 @@
 				</Select.Portal>
 			</Select.Root>
 
-			<!-- Clear filters -->
 			{#if hasActiveFilters}
 				<Tooltip.Provider>
 					<Tooltip.Root>
@@ -408,7 +386,6 @@
 			{/if}
 		</div>
 
-		<!-- Mobile cards -->
 		<div class="md:hidden flex flex-col gap-3">
 			{#each paginated as row (row.name + row.rdo + row.date + row.state)}
 				<div class="bg-surface px-4 py-3 border border-divider-subtle rounded-xl">
@@ -437,7 +414,6 @@
 			{/each}
 		</div>
 
-		<!-- Desktop table -->
 		<div class="hidden md:block border border-divider-subtle rounded-xl overflow-x-auto">
 			<table class="w-full text-sm text-left">
 				<thead>
@@ -522,7 +498,6 @@
 			</table>
 		</div>
 
-		<!-- Pagination -->
 		<div class="flex justify-between items-center mt-6">
 			<div class="flex items-center gap-3">
 				<span class="text-muted text-sm">

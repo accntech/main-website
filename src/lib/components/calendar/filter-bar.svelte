@@ -30,7 +30,6 @@
 </script>
 
 <div class="space-y-3">
-	<!-- Search input -->
 	<div class="relative">
 		<svg
 			class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted"
@@ -55,7 +54,6 @@
 		/>
 	</div>
 
-	<!-- Filter chips and clear button -->
 	<div class="flex items-center gap-2">
 		<div class="flex gap-2 overflow-x-auto scrollbar-none">
 			{#each ACTION_TYPES as { type, label } (type)}

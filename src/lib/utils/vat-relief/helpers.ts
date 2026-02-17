@@ -62,7 +62,7 @@ export function isTrue(str: string | null | undefined): boolean {
 
 export function getEndOfMonth(year: number, month: number): Date {
 	if (month <= 12) {
-		return new Date(year, month, 0); // JS: month is 1-indexed, day 0 = last day of prev month
+		return new Date(year, month, 0);
 	}
 	const adjustedMonth = month - 12;
 	return new Date(year + 1, adjustedMonth, 0);

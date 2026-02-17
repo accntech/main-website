@@ -18,7 +18,6 @@
 	let searchQuery = $state('');
 	let activeFilters: SvelteSet<ActionType> = new SvelteSet();
 
-	// Initialize from URL params (e.g. ?date=2026-03-15)
 	if (browser) {
 		const dateParam = new URLSearchParams(window.location.search).get('date');
 		if (dateParam && /^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
@@ -28,7 +27,6 @@
 		}
 	}
 
-	// Sync selectedDate to URL
 	$effect(() => {
 		if (!browser) return;
 		const url = new URL(window.location.href);
@@ -133,7 +131,7 @@
 <main class="bg-base min-h-screen">
 	<div class="relative mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-7xl">
 		<div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 50% at 70% 40%, rgba(6, 182, 212, 0.04), transparent);"></div>
-		<!-- Breadcrumb -->
+
 		<nav class="relative mb-6 text-sm" aria-label="Breadcrumb">
 			<ol class="flex items-center gap-2 text-muted">
 				<li><a href="/apps" class="hover:text-heading transition-colors">Apps</a></li>
@@ -142,7 +140,6 @@
 			</ol>
 		</nav>
 
-		<!-- Page header -->
 		<header class="relative mb-10">
 			<p class="mb-2 font-semibold text-teal text-sm uppercase tracking-widest">Tax Compliance Tool</p>
 			<h1 class="font-rajdhani font-bold text-heading text-4xl sm:text-5xl">
@@ -154,7 +151,6 @@
 			</p>
 		</header>
 
-		<!-- Filter bar -->
 		<FilterBar
 			{searchQuery}
 			{activeFilters}
@@ -163,7 +159,6 @@
 			onclear={clearFilters}
 		/>
 
-		<!-- Main layout: 2-column on desktop, stacked on mobile -->
 		<div class="relative grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
 			<div class="lg:col-span-2">
 				<CalendarHeader

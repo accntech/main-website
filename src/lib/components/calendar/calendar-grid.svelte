@@ -65,7 +65,6 @@
 </script>
 
 <div>
-	<!-- Day-of-week headers -->
 	<div class="grid grid-cols-7">
 		{#each DAY_HEADERS_FULL as full, i (i)}
 			<div class="text-center text-xs font-medium text-muted py-2">
@@ -75,14 +74,11 @@
 		{/each}
 	</div>
 
-	<!-- Calendar grid -->
 	<div class="grid grid-cols-7 gap-px bg-divider-subtle border border-divider-subtle rounded-xl overflow-hidden shadow-lg dark:shadow-[0_8px_32px_rgba(6,182,212,0.08)]">
-		<!-- Empty cells before day 1 -->
 		{#each { length: firstDayOfMonth }, i}
 			<div class="bg-base"></div>
 		{/each}
 
-		<!-- Day cells -->
 		{#each days as day, i (day.date)}
 			{@const colIndex = (firstDayOfMonth + i) % 7}
 			{@const isWeekend = colIndex === 0 || colIndex === 6}
@@ -118,7 +114,6 @@
 			</button>
 		{/each}
 
-		<!-- Empty cells after last day -->
 		{#each { length: trailingCells }, i}
 			<div class="bg-base"></div>
 		{/each}

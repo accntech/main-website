@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* ── Light mode (default) ── */
 :root {
 	--base: #ffffff;
 	--surface: #f8fafc;
@@ -18,7 +17,6 @@
 	--base-95: rgba(255, 255, 255, 0.95);
 }
 
-/* ── Dark mode ── */
 .dark {
 	--base: #080d1a;
 	--surface: #0f172a;
@@ -36,7 +34,6 @@
 	--base-95: rgba(8, 13, 26, 0.95);
 }
 
-/* ── Map raw CSS vars to Tailwind utility tokens ── */
 @theme inline {
 	--color-base: var(--base);
 	--color-surface: var(--surface);
@@ -54,7 +51,6 @@
 	--color-base-95: var(--base-95);
 }
 
-/* ── Static brand colors ── */
 @theme {
 	--color-navy: #0f172a;
 	--color-navy-dark: #080d1a;
@@ -81,7 +77,6 @@ body {
 	color: #ffffff;
 }
 
-/* ── Calendar animations ── */
 @keyframes fade-in {
 	from {
 		opacity: 0;
@@ -97,7 +92,6 @@ body {
 	animation: fade-in 0.25s ease-out;
 }
 
-/* ── Scrollbar utilities ── */
 .scrollbar-none {
 	-ms-overflow-style: none;
 	scrollbar-width: none;

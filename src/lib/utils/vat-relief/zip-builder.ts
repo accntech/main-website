@@ -11,13 +11,11 @@ export async function buildZip(
 
 	const root = zip.folder('vat-relief-output')!;
 
-	// Add DAT files
 	const datFolder = root.folder('DAT Files')!;
 	for (const file of datFiles) {
 		datFolder.file(file.name, file.content);
 	}
 
-	// Add reconciliation report
 	root.file(reconReport.filename, reconReport.buffer);
 
 	const blob = await zip.generateAsync({ type: 'blob' });
