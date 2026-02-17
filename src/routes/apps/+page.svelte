@@ -27,7 +27,8 @@
 			icon: 'list' as const
 		},
 		{
-			title: 'Libro (alpha)',
+			title: 'Libro',
+			badge: 'Alpha',
 			description:
 				'Simplify your bookkeeping — record journal entries, track your general ledger, generate trial balances, and produce balance sheets in minutes. Currently in alpha: features may change and data may be reset as we refine the experience.',
 			href: 'https://libro-app.com/',
@@ -100,7 +101,12 @@
 						{/if}
 					</div>
 
-					<h2 class="font-rajdhani font-bold text-heading text-lg">{app.title}</h2>
+					<h2 class="flex items-center gap-2 font-rajdhani font-bold text-heading text-lg">
+						{app.title}
+						{#if app.badge}
+							<span class="inline-flex items-center bg-[#cba6f7]/15 px-2 py-0.5 rounded-full font-sans font-medium text-[#cba6f7] text-xs tracking-wide">{app.badge}</span>
+						{/if}
+					</h2>
 					<p class="mt-2 text-body text-sm leading-relaxed">{app.description}</p>
 
 					<div
