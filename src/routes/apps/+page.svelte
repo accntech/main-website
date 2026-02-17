@@ -2,6 +2,7 @@
 	import Nav from '$lib/components/nav.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Seo from '$lib/components/seo.svelte';
+	import libroLogo from '$lib/assets/libro-logo.svg';
 
 	const apps = [
 		{
@@ -24,6 +25,15 @@
 				'Searchable directory of BIR-designated Top Withholding Agents with filtering by name, RDO, type, status, and date.',
 			href: '/apps/top-withholding-agents',
 			icon: 'list' as const
+		},
+		{
+			title: 'Libro',
+			description:
+				'Simplify your bookkeeping — record journal entries, track your general ledger, generate trial balances, and produce balance sheets in minutes. Collaborate with your team and share reports seamlessly.',
+			href: 'https://libro-app.com/',
+			icon: 'book' as const,
+			external: true,
+			catppuccin: true
 		}
 	];
 </script>
@@ -49,10 +59,16 @@
 			{#each apps as app (app.href)}
 				<a
 					href={app.href}
-					class="group border border-divider-subtle bg-surface hover:border-teal/40 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-teal/5"
+					target={app.external ? '_blank' : undefined}
+					rel={app.external ? 'noopener noreferrer' : undefined}
+					class="group border border-divider-subtle bg-surface p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg {app.catppuccin
+						? 'hover:border-[#cba6f7]/40 hover:shadow-[#cba6f7]/5'
+						: 'hover:border-teal/40 hover:shadow-teal/5'}"
 				>
 					<div
-						class="flex justify-center items-center bg-teal/10 group-hover:bg-teal/15 mb-5 rounded-xl w-12 h-12 transition-colors duration-300"
+						class="flex justify-center items-center mb-5 rounded-xl w-12 h-12 transition-colors duration-300 {app.catppuccin
+							? 'bg-[#cba6f7]/10 group-hover:bg-[#cba6f7]/15'
+							: 'bg-teal/10 group-hover:bg-teal/15'}"
 					>
 						{#if app.icon === 'calendar'}
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="text-teal">
@@ -71,6 +87,8 @@
 								<line x1="3" y1="12" x2="3.01" y2="12" />
 								<line x1="3" y1="18" x2="3.01" y2="18" />
 							</svg>
+						{:else if app.icon === 'book'}
+							<img src={libroLogo} alt="Libro logo" class="w-7 h-7" />
 						{:else}
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="text-teal">
 								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -86,23 +104,23 @@
 					<p class="mt-2 text-body text-sm leading-relaxed">{app.description}</p>
 
 					<div
-						class="flex items-center gap-1.5 mt-4 font-medium text-sm text-teal opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1"
+						class="flex items-center gap-1.5 mt-4 font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1 {app.catppuccin
+							? 'text-[#cba6f7]'
+							: 'text-teal'}"
 					>
-						Open app
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="16"
-							height="16"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<line x1="5" y1="12" x2="19" y2="12" />
-							<polyline points="12 5 19 12 12 19" />
-						</svg>
+						{app.external ? 'Visit site' : 'Open app'}
+						{#if app.external}
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+								<polyline points="15 3 21 3 21 9" />
+								<line x1="10" y1="14" x2="21" y2="3" />
+							</svg>
+						{:else}
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="5" y1="12" x2="19" y2="12" />
+								<polyline points="12 5 19 12 12 19" />
+							</svg>
+						{/if}
 					</div>
 				</a>
 			{/each}
