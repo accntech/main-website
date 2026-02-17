@@ -1,0 +1,197 @@
+<script lang="ts">
+	import type { ActionType } from '$lib/types/tax-calendar';
+	import { CALENDAR_MAP } from '$lib/data/tax-calendar';
+	import { SvelteSet } from 'svelte/reactivity';
+	import { browser } from '$app/environment';
+	import Nav from '$lib/components/nav.svelte';
+	import Footer from '$lib/components/footer.svelte';
+	import Seo from '$lib/components/seo.svelte';
+	import CalendarHeader from '$lib/components/calendar/calendar-header.svelte';
+	import CalendarGrid from '$lib/components/calendar/calendar-grid.svelte';
+	import DeadlinePanel from '$lib/components/calendar/deadline-panel.svelte';
+	import FilterBar from '$lib/components/calendar/filter-bar.svelte';
+
+	let currentMonth = $state(new Date().getMonth());
+	const currentYear = 2026;
+	let selectedDate = $state<string | null>(null);
+	let searchQuery = $state('');
+	let activeFilters: SvelteSet<ActionType> = new SvelteSet();
+
+	// Initialize from URL params (e.g. ?date=2026-03-15)
+	if (browser) {
+		const dateParam = new URLSearchParams(window.location.search).get('date');
+		if (dateParam && /^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
+			selectedDate = dateParam;
+			const month = parseInt(dateParam.split('-')[1], 10) - 1;
+			if (month >= 0 && month <= 11) currentMonth = month;
+		}
+	}
+
+	// Sync selectedDate to URL
+	$effect(() => {
+		if (!browser) return;
+		const url = new URL(window.location.href);
+		if (selectedDate) {
+			url.searchParams.set('date', selectedDate);
+		} else {
+			url.searchParams.delete('date');
+		}
+		window.history.replaceState({}, '', url);
+	});
+
+	let hasActiveFilters = $derived(searchQuery.trim().length > 0 || activeFilters.size > 0);
+
+	let filteredDateSet = $derived.by(() => {
+		const dates = new SvelteSet<string>();
+		for (const [date, day] of CALENDAR_MAP) {
+			const matchesFilter =
+				activeFilters.size === 0 || day.deadlines.some((d) => activeFilters.has(d.action));
+			const matchesSearch =
+				!searchQuery.trim() ||
+				day.deadlines.some((d) => {
+					const q = searchQuery.trim().toLowerCase();
+					return (
+						d.description.toLowerCase().includes(q) ||
+						d.formNumbers.some((f) => f.toLowerCase().includes(q))
+					);
+				});
+			if (matchesFilter && matchesSearch) dates.add(date);
+		}
+		return dates;
+	});
+
+	function prevMonth() {
+		if (currentMonth > 0) {
+			currentMonth--;
+			const lastDay = new Date(currentYear, currentMonth + 1, 0).getDate();
+			selectedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(lastDay).padStart(2, '0')}`;
+		}
+	}
+
+	function nextMonth() {
+		if (currentMonth < 11) {
+			currentMonth++;
+			selectedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-01`;
+		}
+	}
+
+	function goToToday() {
+		const now = new Date();
+		currentMonth = now.getFullYear() === 2026 ? now.getMonth() : 0;
+		const y = 2026;
+		const m = currentMonth;
+		const d = now.getFullYear() === 2026 ? now.getDate() : 1;
+		selectedDate = `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+	}
+
+	function selectDate(date: string) {
+		selectedDate = date;
+		const month = parseInt(date.split('-')[1], 10) - 1;
+		if (month !== currentMonth) currentMonth = month;
+	}
+
+	function handleSearch(query: string) {
+		searchQuery = query;
+	}
+
+	function toggleFilter(filter: ActionType) {
+		if (activeFilters.has(filter)) {
+			activeFilters.delete(filter);
+		} else {
+			activeFilters.add(filter);
+		}
+	}
+
+	function clearFilters() {
+		searchQuery = '';
+		activeFilters.clear();
+	}
+
+	$effect(() => {
+		if (selectedDate && typeof window !== 'undefined') {
+			const isSmall = window.innerWidth < 1024;
+			if (isSmall) {
+				const el = document.getElementById('deadline-panel');
+				el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+		}
+	});
+</script>
+
+<svelte:window onkeydown={(e) => { if (e.key === 'Escape') selectedDate = null; }} />
+
+<Seo
+	title="2026 BIR Tax Calendar | AccounTech"
+	description="Interactive 2026 BIR Tax Calendar with all filing deadlines, form references, and compliance dates. Never miss a BIR deadline."
+/>
+
+<Nav />
+
+<main class="bg-base min-h-screen">
+	<div class="mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-7xl">
+		<!-- Breadcrumb -->
+		<nav class="mb-6 text-sm" aria-label="Breadcrumb">
+			<ol class="flex items-center gap-2 text-muted">
+				<li><a href="/apps" class="hover:text-heading transition-colors">Apps</a></li>
+				<li class="text-faint">/</li>
+				<li class="text-heading">Tax Calendar</li>
+			</ol>
+		</nav>
+
+		<!-- Page header -->
+		<header class="mb-8">
+			<h1 class="font-rajdhani font-bold text-heading text-3xl sm:text-4xl">
+				2026 BIR Tax Calendar
+			</h1>
+			<p class="text-body text-sm mt-2">
+				All BIR filing deadlines, compliance dates, and form references for the 2026 tax year.
+			</p>
+		</header>
+
+		<!-- Filter bar -->
+		<FilterBar
+			{searchQuery}
+			{activeFilters}
+			onsearch={handleSearch}
+			ontogglefilter={toggleFilter}
+			onclear={clearFilters}
+		/>
+
+		<!-- Main layout: 2-column on desktop, stacked on mobile -->
+		<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+			<div class="lg:col-span-2">
+				<CalendarHeader
+					{currentMonth}
+					{currentYear}
+					onprev={prevMonth}
+					onnext={nextMonth}
+					ontoday={goToToday}
+				/>
+				<div class="mt-4">
+					{#key currentMonth}
+						<div class="animate-fade-in">
+							<CalendarGrid
+								{currentMonth}
+								{currentYear}
+								{selectedDate}
+								{filteredDateSet}
+								{hasActiveFilters}
+								onselect={selectDate}
+							/>
+						</div>
+					{/key}
+				</div>
+			</div>
+			<div class="lg:col-span-1 lg:sticky lg:top-28 lg:self-start">
+				<DeadlinePanel
+					{selectedDate}
+					{searchQuery}
+					{activeFilters}
+					onnavigate={selectDate}
+				/>
+			</div>
+		</div>
+	</div>
+</main>
+
+<Footer />

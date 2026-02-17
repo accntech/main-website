@@ -80,3 +80,28 @@ body {
 	background-color: rgba(6, 182, 212, 0.3);
 	color: #ffffff;
 }
+
+/* ── Calendar animations ── */
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.animate-fade-in {
+	animation: fade-in 0.25s ease-out;
+}
+
+/* ── Scrollbar utilities ── */
+.scrollbar-none {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+	display: none;
+}

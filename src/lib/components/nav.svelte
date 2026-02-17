@@ -5,10 +5,11 @@
 	let scrolled = $state(false);
 
 	const navLinks = [
-		{ label: 'Services', href: '#services' },
-		{ label: 'Company', href: '#company' },
-		{ label: 'About', href: '#about' },
-		{ label: 'Contact', href: '#contact' }
+		{ label: 'Services', href: '/#services' },
+		{ label: 'Company', href: '/#company' },
+		{ label: 'About', href: '/#about' },
+		{ label: 'Contact', href: '/#contact' },
+		{ label: 'Apps', href: '/apps' }
 	] as const;
 
 	function handleScroll() {
@@ -54,7 +55,7 @@
 				<span class="sr-only">Toggle theme</span>
 			</button>
 			<a
-				href="#contact"
+				href="/#contact"
 				class="bg-teal hover:bg-teal-light hover:shadow-lg hover:shadow-teal/20 px-5 py-2 rounded-full font-semibold text-navy-dark text-sm transition-all duration-300"
 			>
 				Get Started
@@ -118,7 +119,7 @@
 					</a>
 				{/each}
 				<a
-					href="#contact"
+					href="/#contact"
 					class="inline-block bg-teal mt-2 px-6 py-3 rounded-full font-semibold text-navy-dark text-sm text-center"
 					onclick={closeMobileMenu}
 				>
