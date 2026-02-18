@@ -1,9 +1,11 @@
 <script lang="ts">
 	import Nav from '$lib/components/nav.svelte';
 	import Hero from '$lib/components/hero.svelte';
+	import WhoItsFor from '$lib/components/who-its-for.svelte';
 	import Services from '$lib/components/services.svelte';
 	import CompanyProfile from '$lib/components/company-profile.svelte';
 	import About from '$lib/components/about.svelte';
+	import Trust from '$lib/components/trust.svelte';
 	import Contact from '$lib/components/contact.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Seo from '$lib/components/seo.svelte';
@@ -105,9 +107,11 @@
 <Nav />
 <main>
 	<Hero />
+	<WhoItsFor />
 	<Services />
 	<CompanyProfile />
 	<About />
+	<Trust />
 	<Contact />
 </main>
 <Footer />

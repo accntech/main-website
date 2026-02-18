@@ -73,8 +73,9 @@
 				class="mt-5 sm:mt-6 max-w-xl text-body sm:text-lg md:text-xl leading-relaxed hero-animate"
 				style="animation-delay: 300ms"
 			>
-				Bridging traditional accounting expertise with modern technology solutions
-				to help businesses thrive in the digital age.
+				Navigating BIR compliance, registering a new business, or outgrowing
+				manual spreadsheets? We help Philippine businesses get their finances
+				right — so you can focus on growth.
 			</p>
 
 			<div
@@ -104,16 +105,16 @@
 			style="animation-delay: 600ms"
 		>
 			<div>
-				<div class="font-rajdhani font-bold text-heading text-2xl sm:text-3xl">6+</div>
-				<div class="mt-1 text-muted text-xs sm:text-sm">Core Services</div>
+				<div class="font-rajdhani font-bold text-heading text-2xl sm:text-3xl">2017</div>
+				<div class="mt-1 text-muted text-xs sm:text-sm">Established</div>
 			</div>
 			<div>
 				<div class="font-rajdhani font-bold text-heading text-2xl sm:text-3xl">CPA</div>
 				<div class="mt-1 text-muted text-xs sm:text-sm">Licensed</div>
 			</div>
 			<div>
-				<div class="font-rajdhani font-bold text-heading text-2xl sm:text-3xl">PH</div>
-				<div class="mt-1 text-muted text-xs sm:text-sm">Philippines</div>
+				<div class="font-rajdhani font-bold text-heading text-2xl sm:text-3xl">6+</div>
+				<div class="mt-1 text-muted text-xs sm:text-sm">Core Services</div>
 			</div>
 		</div>
 	</div>

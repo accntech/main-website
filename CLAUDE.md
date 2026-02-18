@@ -47,6 +47,18 @@ Fonts: IBM Plex Sans (body) and Rajdhani (headings), loaded from Google Fonts in
 - Components use `<script lang="ts">` with Svelte 5 runes
 - Use `$lib/` alias for imports from `src/lib/`
 
+## Landing Page Questions
+
+The landing page should answer these questions for visitors:
+
+1. **What do you do?**
+2. **Who is it for?**
+3. **Why does it matter?**
+4. **Why should I trust you?**
+5. **What are your services?**
+6. **Show me proof.**
+7. **Tell me what to do next.**
+
 ## Git Policy
 
 - **Do not commit changes** — never run `git commit` unless the user explicitly asks
