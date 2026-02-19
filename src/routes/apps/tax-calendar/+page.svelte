@@ -35,7 +35,7 @@
 		} else {
 			url.searchParams.delete('date');
 		}
-		window.history.replaceState({}, '', url);
+		window.history.replaceState(window.history.state, '', url);
 	});
 
 	let hasActiveFilters = $derived(searchQuery.trim().length > 0 || activeFilters.size > 0);

@@ -30,7 +30,7 @@
 			title: 'Libro',
 			badge: 'Alpha',
 			description:
-				'Simplify your bookkeeping — record journal entries, track your general ledger, generate trial balances, and produce balance sheets in minutes. Currently in alpha: features may change and data may be reset as we refine the experience.',
+				'Simplify your bookkeeping — record journal entries, track your general ledger, generate trial balances, and produce balance sheets in minutes.',
 			href: 'https://libro-app.com/',
 			icon: 'book' as const,
 			external: true,

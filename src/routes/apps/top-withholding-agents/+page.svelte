@@ -101,7 +101,7 @@
 		sd !== 'asc' ? params.set('dir', sd) : params.delete('dir');
 		p > 1 ? params.set('page', String(p)) : params.delete('page');
 
-		window.history.replaceState({}, '', url);
+		window.history.replaceState(window.history.state, '', url);
 	});
 
 	let filtered = $derived.by(() => {

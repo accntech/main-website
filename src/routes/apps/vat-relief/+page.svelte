@@ -104,7 +104,7 @@
 
 <main class="relative bg-base min-h-screen">
 	<div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 50% at 70% 40%, rgba(6, 182, 212, 0.04), transparent);"></div>
-	<div class="relative mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-6xl">
+	<div class="relative mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-7xl">
 
 		<nav class="relative mb-6 text-sm" aria-label="Breadcrumb">
 			<ol class="flex items-center gap-2 text-muted">
