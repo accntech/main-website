@@ -228,11 +228,22 @@
 		if (sortColumn !== column) return '';
 		return sortDirection === 'asc' ? ' \u2191' : ' \u2193';
 	}
+
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		name: 'Top Withholding Agents',
+		description:
+			'Searchable directory of BIR-designated Top Withholding Agents in the Philippines. Filter by name, RDO, type, status, or publication date.',
+		url: 'https://accountech.dev/apps/top-withholding-agents',
+		isPartOf: { '@id': 'https://accountech.dev/#website' }
+	};
 </script>
 
 <Seo
 	title="Top Withholding Agents | AccounTech"
 	description="Searchable directory of BIR-designated Top Withholding Agents in the Philippines. Filter by name, RDO, type, status, or publication date."
+	{jsonLd}
 />
 
 <Nav />

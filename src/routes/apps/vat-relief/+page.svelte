@@ -93,11 +93,22 @@
 		zipFilename = '';
 		statusText = '';
 	}
+
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		name: 'VAT Relief Generator',
+		description:
+			'Generate BIR-compliant VAT relief DAT files and reconciliation reports. Upload your Excel template and download everything as a ZIP.',
+		url: 'https://accountech.dev/apps/vat-relief',
+		isPartOf: { '@id': 'https://accountech.dev/#website' }
+	};
 </script>
 
 <Seo
 	title="VAT Relief Generator | AccounTech"
 	description="Generate BIR-compliant VAT relief DAT files and reconciliation reports. Upload your Excel template and download everything as a ZIP."
+	{jsonLd}
 />
 
 <Nav />

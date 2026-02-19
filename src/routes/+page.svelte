@@ -25,12 +25,38 @@
 				description:
 					'Where Accounting Meets Technology. Comprehensive accounting, tax compliance, advisory, and system development services in Oriental Mindoro, Philippines.',
 				foundingDate: '2017',
-				address: {
-					'@type': 'PostalAddress',
-					addressLocality: 'Roxas',
-					addressRegion: 'Oriental Mindoro',
-					addressCountry: 'PH'
-				},
+				location: [
+					{
+						'@type': 'Place',
+						name: 'AccounTech — Roxas Office',
+						address: {
+							'@type': 'PostalAddress',
+							addressLocality: 'Roxas',
+							addressRegion: 'Oriental Mindoro',
+							addressCountry: 'PH'
+						},
+						geo: {
+							'@type': 'GeoCoordinates',
+							latitude: 12.6218,
+							longitude: 121.5117
+						}
+					},
+					{
+						'@type': 'Place',
+						name: 'AccounTech — Mansalay Office',
+						address: {
+							'@type': 'PostalAddress',
+							addressLocality: 'Mansalay',
+							addressRegion: 'Oriental Mindoro',
+							addressCountry: 'PH'
+						},
+						geo: {
+							'@type': 'GeoCoordinates',
+							latitude: 12.5207,
+							longitude: 121.4383
+						}
+					}
+				],
 				telephone: '+63-995-294-2417',
 				email: 'accntech.dev@gmail.com',
 				sameAs: [
@@ -41,6 +67,13 @@
 				areaServed: {
 					'@type': 'AdministrativeArea',
 					name: 'Oriental Mindoro, Philippines'
+				},
+				priceRange: '$$',
+				openingHoursSpecification: {
+					'@type': 'OpeningHoursSpecification',
+					dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+					opens: '08:00',
+					closes: '17:00'
 				},
 				hasOfferCatalog: {
 					'@type': 'OfferCatalog',

@@ -1,0 +1,20 @@
+{
+  "name": "AccounTech Business Management Services",
+  "short_name": "AccounTech",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#06b6d4",
+  "background_color": "#0a0f1a",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "201x201",
+      "type": "image/png"
+    }
+  ]
+}

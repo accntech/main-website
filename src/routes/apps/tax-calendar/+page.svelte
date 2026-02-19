@@ -114,6 +114,16 @@
 			el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		}
 	});
+
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		name: '2026 BIR Tax Calendar',
+		description:
+			'Interactive 2026 BIR Tax Calendar with all filing deadlines, form references, and compliance dates. Never miss a BIR deadline.',
+		url: 'https://accountech.dev/apps/tax-calendar',
+		isPartOf: { '@id': 'https://accountech.dev/#website' }
+	};
 </script>
 
 <svelte:window onkeydown={(e) => { if (e.key === 'Escape') selectedDate = null; }} />
@@ -121,6 +131,7 @@
 <Seo
 	title="2026 BIR Tax Calendar | AccounTech"
 	description="Interactive 2026 BIR Tax Calendar with all filing deadlines, form references, and compliance dates. Never miss a BIR deadline."
+	{jsonLd}
 />
 
 <Nav />

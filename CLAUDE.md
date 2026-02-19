@@ -8,7 +8,7 @@ Accountech is a landing page for a professional services firm (accounting + tech
 
 ## Tech Stack
 
-- **SvelteKit** with `adapter-static` (prerendered, no SSR)
+- **SvelteKit** with `adapter-node` (prerendered via `prerender = true`)
 - **Svelte 5** using runes (`$state`, `$props`, etc.)
 - **Tailwind CSS v4** via `@tailwindcss/vite` plugin (imported as `@import "tailwindcss"` in `src/app.css`)
 - **mode-watcher** for dark/light mode (defaults to dark)

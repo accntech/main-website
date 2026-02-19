@@ -37,11 +37,22 @@
 			catppuccin: true
 		}
 	];
+
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'WebPage',
+		name: 'Apps',
+		description:
+			"Explore AccounTech's suite of tools and resources designed for Philippine tax compliance, accounting workflows, and business operations.",
+		url: 'https://accountech.dev/apps',
+		isPartOf: { '@id': 'https://accountech.dev/#website' }
+	};
 </script>
 
 <Seo
 	title="Apps | AccounTech"
 	description="Explore AccounTech's suite of tools and resources designed for Philippine tax compliance, accounting workflows, and business operations."
+	{jsonLd}
 />
 
 <Nav />

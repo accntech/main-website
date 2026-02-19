@@ -84,6 +84,11 @@
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'ProfilePage',
+		name: 'Ogie Galicia — CV',
+		description:
+			'Curriculum vitae of Ogie Galicia, Certified Public Accountant and tech entrepreneur from the Philippines.',
+		url: 'https://accountech.dev/cv',
+		isPartOf: { '@id': 'https://accountech.dev/#website' },
 		mainEntity: {
 			'@type': 'Person',
 			name: 'Ogie Galicia',
