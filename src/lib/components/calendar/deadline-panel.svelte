@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import type { ActionType, TaxDeadline } from '$lib/types/tax-calendar';
 	import { CALENDAR_MAP, HOLIDAY_MAP } from '$lib/data/tax-calendar';
 
@@ -119,9 +120,9 @@
 	});
 </script>
 
-<section id="deadline-panel" class="bg-surface border border-divider-subtle rounded-2xl p-5 sm:p-6">
+<section id="deadline-panel" class="bg-surface lg:bg-transparent p-5 sm:p-6 lg:p-0 border border-divider-subtle lg:border-0 rounded-2xl lg:rounded-none">
 	{#if !selectedDate}
-		<div class="flex flex-col items-center justify-center py-20 text-center">
+		<div class="flex flex-col justify-center items-center py-20 text-center">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="48"
@@ -139,15 +140,15 @@
 				<line x1="8" y1="2" x2="8" y2="6" />
 				<line x1="3" y1="10" x2="21" y2="10" />
 			</svg>
-			<p class="text-muted text-sm mt-4">Select a date to view deadlines</p>
+			<p class="mt-4 text-muted text-sm">Select a date to view deadlines</p>
 		</div>
 	{:else}
 		<div class="space-y-4">
 			<div>
-				<div bind:this={topNavEl} class="flex items-center justify-between gap-2">
+				<div bind:this={topNavEl} class="flex justify-between items-center gap-2">
 					<button
 						type="button"
-						class="p-1.5 rounded-lg text-muted transition-colors {prevDeadlineDate ? 'hover:bg-elevated hover:text-heading cursor-pointer' : 'opacity-30 cursor-not-allowed'}"
+						class="p-1.5 rounded-full text-muted transition-colors {prevDeadlineDate ? 'hover:bg-elevated hover:text-heading cursor-pointer' : 'opacity-30 cursor-not-allowed'}"
 						disabled={!prevDeadlineDate}
 						onclick={() => prevDeadlineDate && onnavigate(prevDeadlineDate)}
 						title={prevDeadlineDate ? `Previous deadline: ${prevDeadlineDate}` : 'No previous deadline'}
@@ -161,7 +162,7 @@
 					</h2>
 					<button
 						type="button"
-						class="p-1.5 rounded-lg text-muted transition-colors {nextDeadlineDate ? 'hover:bg-elevated hover:text-heading cursor-pointer' : 'opacity-30 cursor-not-allowed'}"
+						class="p-1.5 rounded-full text-muted transition-colors {nextDeadlineDate ? 'hover:bg-elevated hover:text-heading cursor-pointer' : 'opacity-30 cursor-not-allowed'}"
 						disabled={!nextDeadlineDate}
 						onclick={() => nextDeadlineDate && onnavigate(nextDeadlineDate)}
 						title={nextDeadlineDate ? `Next deadline: ${nextDeadlineDate}` : 'No next deadline'}
@@ -174,14 +175,14 @@
 
 				{#if isHoliday}
 					<span
-						class="inline-block bg-rose-500/15 text-rose-400 text-xs font-medium px-2.5 py-1 rounded-full border border-rose-500/30 mt-2"
+						class="inline-block bg-rose-500/15 mt-2 px-2.5 py-1 border border-rose-500/30 rounded-full font-medium text-rose-400 text-xs"
 					>
 						{holiday?.name}
 					</span>
 				{/if}
 
 				{#if isWeekend || isHoliday}
-					<p class="text-xs text-muted italic mt-2">
+					<p class="mt-2 text-muted text-xs italic">
 						Deadlines falling on this date may be moved to the next working day.
 					</p>
 				{/if}
@@ -192,9 +193,9 @@
 			{:else if filteredDeadlines.length === 0}
 				<p class="text-muted text-sm">No deadlines match your current filters.</p>
 			{:else}
-				<div class="space-y-3">
+				<div class="lg:gap-4 space-y-3 lg:space-y-0 lg:grid lg:grid-cols-2 xl:grid-cols-3">
 					{#each filteredDeadlines as deadline, i (i)}
-						<div class="bg-surface border border-divider-subtle rounded-xl p-4 space-y-2">
+						<div class="space-y-2 bg-surface p-4 border border-divider-subtle rounded-xl">
 							<div class="flex flex-wrap items-center gap-2">
 								<span
 									class="text-xs font-medium px-2 py-0.5 rounded-full border {ACTION_COLORS[deadline.action]}"
@@ -204,7 +205,7 @@
 							</div>
 
 							{#if deadline.formNumbers.length > 0}
-								<p class="text-teal font-semibold text-sm">
+								<p class="font-semibold text-teal text-sm">
 									{deadline.formNumbers.join(', ')}
 								</p>
 							{/if}
@@ -218,7 +219,7 @@
 			{/if}
 
 			{#if totalDeadlines > 0}
-				<p class="text-xs text-muted mt-4">
+				<p class="mt-4 text-muted text-xs">
 					{#if isFiltered}
 						Showing {filteredDeadlines.length} of {totalDeadlines} deadlines
 					{:else}
@@ -228,10 +229,10 @@
 			{/if}
 
 			{#if !topNavVisible && (prevDeadlineDate || nextDeadlineDate)}
-				<div class="flex items-center justify-between gap-2 pt-2 border-t border-divider-subtle">
+				<div transition:fade={{ duration: 200 }} class="flex justify-between items-center gap-2 pt-2 border-divider-subtle border-t">
 					<button
 						type="button"
-						class="flex items-center gap-1 px-2 py-1.5 rounded-lg text-sm text-muted transition-colors {prevDeadlineDate ? 'hover:bg-elevated hover:text-heading cursor-pointer' : 'opacity-30 cursor-not-allowed'}"
+						class="flex items-center gap-1 px-2 py-1.5 rounded-full text-sm text-muted transition-colors {prevDeadlineDate ? 'hover:bg-elevated hover:text-heading cursor-pointer' : 'opacity-30 cursor-not-allowed'}"
 						disabled={!prevDeadlineDate}
 						onclick={() => prevDeadlineDate && onnavigate(prevDeadlineDate)}
 					>
@@ -242,7 +243,7 @@
 					</button>
 					<button
 						type="button"
-						class="flex items-center gap-1 px-2 py-1.5 rounded-lg text-sm text-muted transition-colors {nextDeadlineDate ? 'hover:bg-elevated hover:text-heading cursor-pointer' : 'opacity-30 cursor-not-allowed'}"
+						class="flex items-center gap-1 px-2 py-1.5 rounded-full text-sm text-muted transition-colors {nextDeadlineDate ? 'hover:bg-elevated hover:text-heading cursor-pointer' : 'opacity-30 cursor-not-allowed'}"
 						disabled={!nextDeadlineDate}
 						onclick={() => nextDeadlineDate && onnavigate(nextDeadlineDate)}
 					>

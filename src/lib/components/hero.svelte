@@ -44,8 +44,6 @@
 		<div class="top-1/2 right-1/4 hero-float-fast absolute bg-teal/30 rounded-full w-2 h-2"></div>
 		<div class="top-[45%] right-[30%] hero-float-slow absolute bg-teal/20 rounded-full w-1.5 h-1.5"></div>
 		<div class="top-[55%] right-[22%] hero-float-medium absolute bg-teal/40 rounded-full w-1 h-1"></div>
-		<div class="top-2/3 left-0 absolute bg-linear-to-r from-transparent via-teal/15 to-transparent w-1/3 h-px"></div>
-		<div class="top-0 right-1/3 absolute bg-linear-to-b from-transparent via-teal/10 to-transparent w-px h-2/3"></div>
 	</div>
 
 	<div class="z-10 relative mx-auto px-5 sm:px-6 py-24 sm:py-32 w-full max-w-7xl">

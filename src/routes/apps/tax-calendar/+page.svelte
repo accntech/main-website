@@ -110,11 +110,8 @@
 	$effect(() => {
 		if (selectedDate && shouldScrollToPanel && typeof window !== 'undefined') {
 			shouldScrollToPanel = false;
-			const isSmall = window.innerWidth < 1024;
-			if (isSmall) {
-				const el = document.getElementById('deadline-panel');
-				el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			}
+			const el = document.getElementById('deadline-panel');
+			el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		}
 	});
 </script>
@@ -128,9 +125,9 @@
 
 <Nav />
 
-<main class="bg-base min-h-screen">
+<main class="relative bg-base min-h-screen">
+	<div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 50% at 70% 40%, rgba(6, 182, 212, 0.04), transparent);"></div>
 	<div class="relative mx-auto px-5 sm:px-6 pt-28 pb-20 max-w-7xl">
-		<div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 50% at 70% 40%, rgba(6, 182, 212, 0.04), transparent);"></div>
 
 		<nav class="relative mb-6 text-sm" aria-label="Breadcrumb">
 			<ol class="flex items-center gap-2 text-muted">
@@ -146,7 +143,7 @@
 				2026 BIR Tax Calendar
 			</h1>
 			<div class="bg-teal mt-4 rounded-full w-16 h-1"></div>
-			<p class="text-body text-sm mt-4 max-w-2xl">
+			<p class="mt-4 max-w-2xl text-body text-sm">
 				All BIR filing deadlines, compliance dates, and form references for the 2026 tax year.
 			</p>
 		</header>
@@ -159,8 +156,8 @@
 			onclear={clearFilters}
 		/>
 
-		<div class="relative grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
-			<div class="lg:col-span-2">
+		<div class="relative space-y-6 mx-auto mt-8 max-w-7xl">
+			<div>
 				<CalendarHeader
 					{currentMonth}
 					{currentYear}
@@ -183,7 +180,7 @@
 					{/key}
 				</div>
 			</div>
-			<div class="lg:col-span-1 lg:sticky lg:top-28 lg:self-start">
+			<div>
 				<DeadlinePanel
 					{selectedDate}
 					{searchQuery}
