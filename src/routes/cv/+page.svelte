@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import { toggleMode } from 'mode-watcher';
+	import { toggleMode, mode } from 'mode-watcher';
 	import Seo from '$lib/components/seo.svelte';
 
 	const experience = [
@@ -142,7 +142,11 @@
 			aria-label="Toggle theme"
 			class="flex justify-center items-center rounded-full w-9 h-9 text-body hover:text-heading transition-colors duration-300"
 		>
-			<Icon icon="solar:moon-linear" width="18" height="18" class="size-4.5" />
+			{#if mode.current === 'dark'}
+				<Icon icon="solar:moon-linear" width="18" height="18" aria-hidden="true" />
+			{:else}
+				<Icon icon="solar:sun-linear" width="18" height="18" aria-hidden="true" />
+			{/if}
 			<span class="sr-only">Toggle theme</span>
 		</button>
 	</div>
