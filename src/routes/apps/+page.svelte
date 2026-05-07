@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import Nav from '$lib/components/nav.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Seo from '$lib/components/seo.svelte';
@@ -28,7 +29,6 @@
 		},
 		{
 			title: 'Libro',
-			badge: 'Alpha',
 			description:
 				'Simplify your bookkeeping — record journal entries, track your general ledger, generate trial balances, and produce balance sheets in minutes.',
 			href: 'https://libro-app.com/',
@@ -74,69 +74,40 @@
 					target={app.external ? '_blank' : undefined}
 					rel={app.external ? 'noopener noreferrer' : undefined}
 					class="group border border-divider-subtle bg-surface p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg {app.catppuccin
-						? 'hover:border-[#cba6f7]/40 hover:shadow-[#cba6f7]/5'
+						? 'hover:border-[#179299]/40 hover:shadow-[#179299]/5'
 						: 'hover:border-teal/40 hover:shadow-teal/5'}"
 				>
 					<div
 						class="flex justify-center items-center mb-5 rounded-xl w-12 h-12 transition-colors duration-300 {app.catppuccin
-							? 'bg-[#cba6f7]/10 group-hover:bg-[#cba6f7]/15'
+							? 'bg-[#179299]/10 group-hover:bg-[#179299]/15'
 							: 'bg-teal/10 group-hover:bg-teal/15'}"
 					>
 						{#if app.icon === 'calendar'}
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="text-teal">
-								<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-								<line x1="16" y1="2" x2="16" y2="6" />
-								<line x1="8" y1="2" x2="8" y2="6" />
-								<line x1="3" y1="10" x2="21" y2="10" />
-								<rect x="8" y="14" width="3" height="3" rx="0.5" />
-							</svg>
+							<Icon icon="solar:calendar-linear" width="24" height="24" class="text-teal" />
 						{:else if app.icon === 'list'}
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="text-teal">
-								<line x1="8" y1="6" x2="21" y2="6" />
-								<line x1="8" y1="12" x2="21" y2="12" />
-								<line x1="8" y1="18" x2="21" y2="18" />
-								<line x1="3" y1="6" x2="3.01" y2="6" />
-								<line x1="3" y1="12" x2="3.01" y2="12" />
-								<line x1="3" y1="18" x2="3.01" y2="18" />
-							</svg>
+							<Icon icon="solar:list-linear" width="24" height="24" class="text-teal" />
 						{:else if app.icon === 'book'}
 							<img src={libroLogo} alt="Libro logo" class="w-7 h-7" />
 						{:else}
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="text-teal">
-								<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-								<polyline points="14 2 14 8 20 8" />
-								<line x1="16" y1="13" x2="8" y2="13" />
-								<line x1="16" y1="17" x2="8" y2="17" />
-								<polyline points="10 9 9 9 8 9" />
-							</svg>
+							<Icon icon="solar:document-linear" width="24" height="24" class="text-teal" />
 						{/if}
 					</div>
 
-					<h2 class="flex items-center gap-2 font-rajdhani font-bold text-heading text-lg">
+					<h2 class="font-rajdhani font-bold text-heading text-lg">
 						{app.title}
-						{#if app.badge}
-							<span class="inline-flex items-center bg-[#cba6f7]/15 px-2 py-0.5 rounded-full font-sans font-medium text-[#cba6f7] text-xs tracking-wide">{app.badge}</span>
-						{/if}
 					</h2>
 					<p class="mt-2 text-body text-sm leading-relaxed">{app.description}</p>
 
 					<div
 						class="flex items-center gap-1.5 mt-4 font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1 {app.catppuccin
-							? 'text-[#cba6f7]'
+							? 'text-[#179299]'
 							: 'text-teal'}"
 					>
 						{app.external ? 'Visit site' : 'Open app'}
 						{#if app.external}
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-								<polyline points="15 3 21 3 21 9" />
-								<line x1="10" y1="14" x2="21" y2="3" />
-							</svg>
+							<Icon icon="solar:arrow-right-up-linear" width="16" height="16" />
 						{:else}
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-								<line x1="5" y1="12" x2="19" y2="12" />
-								<polyline points="12 5 19 12 12 19" />
-							</svg>
+							<Icon icon="solar:arrow-right-linear" width="16" height="16" />
 						{/if}
 					</div>
 				</a>

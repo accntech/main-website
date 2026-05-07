@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
+
 	let {
 		currentMonth,
 		currentYear,
@@ -42,19 +44,7 @@
 				aria-label="Previous month"
 				class="w-9 h-9 rounded-full flex items-center justify-center text-body hover:text-heading hover:bg-elevated transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
 			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="18"
-					height="18"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<polyline points="15 18 9 12 15 6" />
-				</svg>
+				<Icon icon="solar:alt-arrow-left-linear" width="18" height="18" />
 			</button>
 
 			<button
@@ -63,19 +53,7 @@
 				aria-label="Next month"
 				class="w-9 h-9 rounded-full flex items-center justify-center text-body hover:text-heading hover:bg-elevated transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
 			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="18"
-					height="18"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-				>
-					<polyline points="9 6 15 12 9 18" />
-				</svg>
+				<Icon icon="solar:alt-arrow-right-linear" width="18" height="18" />
 			</button>
 		</div>
 	</div>

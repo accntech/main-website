@@ -11,9 +11,15 @@
 	import DeadlinePanel from '$lib/components/calendar/deadline-panel.svelte';
 	import FilterBar from '$lib/components/calendar/filter-bar.svelte';
 
-	let currentMonth = $state(new Date().getMonth());
 	const currentYear = 2026;
-	let selectedDate = $state<string | null>(null);
+	const today = new Date();
+	const isCurrentYear = today.getFullYear() === currentYear;
+	let currentMonth = $state(isCurrentYear ? today.getMonth() : 0);
+	let selectedDate = $state<string | null>(
+		isCurrentYear
+			? `${currentYear}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
+			: `${currentYear}-01-01`
+	);
 	let shouldScrollToPanel = $state(false);
 	let searchQuery = $state('');
 	let activeFilters: SvelteSet<ActionType> = new SvelteSet();

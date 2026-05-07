@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { Select, Tooltip } from 'bits-ui';
 	import { browser } from '$app/environment';
 	import Nav from '$lib/components/nav.svelte';
@@ -276,21 +277,12 @@
 
 		<div class="flex flex-wrap items-center gap-3 mb-6">
 			<div class="relative">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
+				<Icon
+					icon="solar:magnifer-linear"
 					width="16"
 					height="16"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
 					class="top-1/2 left-3 absolute text-muted -translate-y-1/2 pointer-events-none"
-				>
-					<circle cx="11" cy="11" r="8" />
-					<line x1="21" y1="21" x2="16.65" y2="16.65" />
-				</svg>
+				/>
 				<input
 					type="text"
 					placeholder="Fuzzy search by name..."
@@ -302,7 +294,7 @@
 			<Select.Root type="single" items={typeItems} bind:value={typeFilter}>
 				<Select.Trigger class="inline-flex items-center gap-2 bg-field px-3 py-2 border border-divider data-[state=open]:border-teal rounded-full text-heading text-sm cursor-pointer">
 					{labelFor(typeItems, typeFilter)}
-					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted"><polyline points="6 9 12 15 18 9" /></svg>
+					<Icon icon="solar:alt-arrow-down-linear" width="14" height="14" class="text-muted" />
 				</Select.Trigger>
 				<Select.Portal>
 					<Select.Content class="z-50 bg-surface shadow-black/20 shadow-lg p-1 border border-divider rounded-lg" sideOffset={4}>
@@ -320,12 +312,12 @@
 			<Select.Root type="single" items={rdoItems} bind:value={rdoFilter}>
 				<Select.Trigger class="inline-flex items-center gap-2 bg-field px-3 py-2 border border-divider data-[state=open]:border-teal rounded-full max-w-64 text-heading text-sm truncate cursor-pointer">
 					<span class="truncate">{labelFor(rdoItems, rdoFilter)}</span>
-					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted shrink-0"><polyline points="6 9 12 15 18 9" /></svg>
+					<Icon icon="solar:alt-arrow-down-linear" width="14" height="14" class="text-muted shrink-0" />
 				</Select.Trigger>
 				<Select.Portal>
 					<Select.Content class="z-50 bg-surface shadow-black/20 shadow-lg p-1 border border-divider rounded-lg" sideOffset={4}>
 						<Select.ScrollUpButton class="flex justify-center py-1 text-muted">
-							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15" /></svg>
+							<Icon icon="solar:alt-arrow-up-linear" width="14" height="14" />
 						</Select.ScrollUpButton>
 						<Select.Viewport class="max-h-60 overflow-y-auto">
 							{#each rdoItems as item (item.value)}
@@ -335,7 +327,7 @@
 							{/each}
 						</Select.Viewport>
 						<Select.ScrollDownButton class="flex justify-center py-1 text-muted">
-							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+							<Icon icon="solar:alt-arrow-down-linear" width="14" height="14" />
 						</Select.ScrollDownButton>
 					</Select.Content>
 				</Select.Portal>
@@ -344,7 +336,7 @@
 			<Select.Root type="single" items={stateItems} bind:value={stateFilter}>
 				<Select.Trigger class="inline-flex items-center gap-2 bg-field px-3 py-2 border border-divider data-[state=open]:border-teal rounded-full text-heading text-sm cursor-pointer">
 					{labelFor(stateItems, stateFilter)}
-					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted"><polyline points="6 9 12 15 18 9" /></svg>
+					<Icon icon="solar:alt-arrow-down-linear" width="14" height="14" class="text-muted" />
 				</Select.Trigger>
 				<Select.Portal>
 					<Select.Content class="z-50 bg-surface shadow-black/20 shadow-lg p-1 border border-divider rounded-lg" sideOffset={4}>
@@ -362,7 +354,7 @@
 			<Select.Root type="single" items={dateItems} bind:value={dateFilter}>
 				<Select.Trigger class="inline-flex items-center gap-2 bg-field px-3 py-2 border border-divider data-[state=open]:border-teal rounded-full text-heading text-sm cursor-pointer">
 					{labelFor(dateItems, dateFilter)}
-					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted"><polyline points="6 9 12 15 18 9" /></svg>
+					<Icon icon="solar:alt-arrow-down-linear" width="14" height="14" class="text-muted" />
 				</Select.Trigger>
 				<Select.Portal>
 					<Select.Content class="z-50 bg-surface shadow-black/20 shadow-lg p-1 border border-divider rounded-lg" sideOffset={4}>
@@ -385,7 +377,7 @@
 							class="flex justify-center items-center bg-field border border-divider hover:border-red-400/40 rounded-full w-9 h-9 text-muted hover:text-red-400 transition-colors cursor-pointer"
 							aria-label="Clear filters"
 						>
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+							<Icon icon="solar:close-square-linear" width="16" height="16" />
 						</Tooltip.Trigger>
 						<Tooltip.Portal>
 							<Tooltip.Content class="z-50 bg-surface shadow-lg px-3 py-1.5 border border-divider rounded-lg text-heading text-xs" sideOffset={6}>
@@ -525,7 +517,7 @@
 					class="flex justify-center items-center bg-surface hover:bg-elevated disabled:opacity-40 border border-divider rounded-full w-9 h-9 text-heading transition-colors disabled:cursor-not-allowed"
 					aria-label="Previous page"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+					<Icon icon="solar:alt-arrow-left-linear" width="16" height="16" />
 				</button>
 				<button
 					onclick={() => (currentPage = Math.min(totalPages, currentPage + 1))}
@@ -533,7 +525,7 @@
 					class="flex justify-center items-center bg-surface hover:bg-elevated disabled:opacity-40 border border-divider rounded-full w-9 h-9 text-heading transition-colors disabled:cursor-not-allowed"
 					aria-label="Next page"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+					<Icon icon="solar:alt-arrow-right-linear" width="16" height="16" />
 				</button>
 			</div>
 		</div>

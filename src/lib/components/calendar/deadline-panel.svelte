@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
 	import { fade } from 'svelte/transition';
 	import type { ActionType, TaxDeadline } from '$lib/types/tax-calendar';
 	import { CALENDAR_MAP, HOLIDAY_MAP } from '$lib/data/tax-calendar';
@@ -123,23 +124,7 @@
 <section id="deadline-panel" class="bg-surface lg:bg-transparent p-5 sm:p-6 lg:p-0 border border-divider-subtle lg:border-0 rounded-2xl lg:rounded-none">
 	{#if !selectedDate}
 		<div class="flex flex-col justify-center items-center py-20 text-center">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="48"
-				height="48"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="1.5"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				class="text-muted"
-			>
-				<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-				<line x1="16" y1="2" x2="16" y2="6" />
-				<line x1="8" y1="2" x2="8" y2="6" />
-				<line x1="3" y1="10" x2="21" y2="10" />
-			</svg>
+			<Icon icon="solar:calendar-linear" width="48" height="48" class="text-muted" />
 			<p class="mt-4 text-muted text-sm">Select a date to view deadlines</p>
 		</div>
 	{:else}
@@ -153,9 +138,7 @@
 						onclick={() => prevDeadlineDate && onnavigate(prevDeadlineDate)}
 						title={prevDeadlineDate ? `Previous deadline: ${prevDeadlineDate}` : 'No previous deadline'}
 					>
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="15 18 9 12 15 6" />
-						</svg>
+						<Icon icon="solar:alt-arrow-left-linear" width="18" height="18" />
 					</button>
 					<h2 class="font-rajdhani font-bold text-heading text-xl text-center">
 						{formattedDate} &mdash; {dayOfWeek}
@@ -167,9 +150,7 @@
 						onclick={() => nextDeadlineDate && onnavigate(nextDeadlineDate)}
 						title={nextDeadlineDate ? `Next deadline: ${nextDeadlineDate}` : 'No next deadline'}
 					>
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="9 18 15 12 9 6" />
-						</svg>
+						<Icon icon="solar:alt-arrow-right-linear" width="18" height="18" />
 					</button>
 				</div>
 
@@ -236,9 +217,7 @@
 						disabled={!prevDeadlineDate}
 						onclick={() => prevDeadlineDate && onnavigate(prevDeadlineDate)}
 					>
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="15 18 9 12 15 6" />
-						</svg>
+						<Icon icon="solar:alt-arrow-left-linear" width="16" height="16" />
 						Previous
 					</button>
 					<button
@@ -248,9 +227,7 @@
 						onclick={() => nextDeadlineDate && onnavigate(nextDeadlineDate)}
 					>
 						Next
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<polyline points="9 18 15 12 9 6" />
-						</svg>
+						<Icon icon="solar:alt-arrow-right-linear" width="16" height="16" />
 					</button>
 				</div>
 			{/if}

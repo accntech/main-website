@@ -1,170 +1,82 @@
-<section class="relative bg-surface px-5 sm:px-6 py-16 sm:py-28">
-	<div
-		class="absolute inset-0 pointer-events-none"
-		aria-hidden="true"
-		style="background: radial-gradient(ellipse 60% 40% at 70% 30%, rgba(6, 182, 212, 0.04), transparent);"
-	></div>
+<script lang="ts">
+	const audiences = [
+		{
+			num: 'A',
+			label: 'Startups & New Businesses',
+			question: 'I want to register, but the BIR/SEC paperwork keeps stalling me.',
+			answer:
+				'We run incorporation end-to-end — SEC or DTI, BIR registration, and the rest of the launch paperwork — so you spend the launch month building, not queueing.'
+		},
+		{
+			num: 'B',
+			label: 'Growing SMEs',
+			question: 'My books live in spreadsheets. I have no idea what my real margin is.',
+			answer:
+				'We migrate you onto a proper ledger, set up monthly close, and report the numbers in a way that finally answers strategic questions.'
+		},
+		{
+			num: 'C',
+			label: 'Corporations & Cooperatives',
+			question: 'We need an audit partner who actually understands our sector.',
+			answer:
+				'Independent audit and assurance work for corporate entities and cooperatives, with the documentation and follow-through that boards and regulators expect.'
+		},
+		{
+			num: 'D',
+			label: 'Schools & Institutions',
+			question: 'Education-sector audits have rules generic firms get wrong.',
+			answer:
+				'Specialised audit and compliance work for schools and academic organisations — calibrated to the unique financial reporting they answer to.'
+		}
+	];
+</script>
 
-	<div class="relative mx-auto max-w-6xl">
-		<div class="mb-12 sm:mb-16 text-center">
-			<span class="font-rajdhani font-bold text-teal text-sm uppercase tracking-widest"
-				>Who We Help</span
-			>
-			<h2
-				class="mt-3 font-rajdhani font-bold text-heading text-3xl sm:text-4xl md:text-5xl"
-			>
-				Is This You?
-			</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-body text-lg">
-				Whether you're just starting out or scaling up, if any of these sound familiar, we
-				can help.
-			</p>
+<section class="relative bg-surface px-6 py-24 sm:px-8 sm:py-36">
+	<div class="mx-auto max-w-[1240px]">
+		<div class="grid grid-cols-12 gap-x-6 gap-y-10 mb-16 sm:mb-20">
+			<div class="col-span-12 md:col-span-4">
+				<div class="flex items-center gap-3">
+					<span class="font-mono text-[11px] tracking-[0.2em] text-seal uppercase">¶ Audience</span>
+					<span class="h-px flex-1 bg-rule"></span>
+				</div>
+			</div>
+			<div class="col-span-12 md:col-span-8">
+				<h2 class="font-serif text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.02] font-light tracking-[-0.02em] text-ink">
+					Four conversations<br />
+					we have <em class="font-medium not-italic">most weeks</em>.
+				</h2>
+				<p class="mt-6 max-w-[55ch] text-base leading-[1.6] text-ink-soft sm:text-lg">
+					If one of these reads like your inbox right now, it's not coincidence — it's
+					the same set of problems we've been quietly solving since 2017.
+				</p>
+			</div>
 		</div>
 
-		<div class="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-			<div
-				class="group bg-base hover:bg-elevated p-6 border border-divider-subtle hover:border-teal/30 rounded-2xl transition-all duration-300 audience-card"
-			>
-				<div
-					class="flex justify-center items-center bg-teal/10 mb-4 rounded-xl w-12 h-12"
-				>
-					<svg
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="text-teal"
-					>
-						<path d="M12 2L2 7l10 5 10-5-10-5z" />
-						<path d="M2 17l10 5 10-5" />
-						<path d="M2 12l10 5 10-5" />
-					</svg>
-				</div>
-				<h3 class="mb-2 font-rajdhani font-bold text-heading text-lg">
-					Startups & New Businesses
-				</h3>
-				<p class="text-body text-sm leading-relaxed">
-					Overwhelmed by SEC/DTI registration, BIR requirements, and permits? We handle
-					the paperwork so you can launch faster.
-				</p>
-			</div>
+		<div class="border-t border-ink/15 dark:border-rule">
+			{#each audiences as { num, label, question, answer }, i (num)}
+				<div class="grid grid-cols-12 gap-x-6 gap-y-4 border-b border-rule-subtle py-10 sm:py-12">
+					<div class="col-span-12 sm:col-span-3">
+						<div class="flex items-baseline gap-3">
+							<span class="font-serif text-4xl font-light text-seal sm:text-5xl">{num}</span>
+							<span class="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
+								Case {String(i + 1).padStart(2, '0')}
+							</span>
+						</div>
+						<p class="mt-4 font-mono text-[11px] leading-[1.5] tracking-[0.16em] text-ink uppercase">
+							{label}
+						</p>
+					</div>
 
-			<div
-				class="group bg-base hover:bg-elevated p-6 border border-divider-subtle hover:border-teal/30 rounded-2xl transition-all duration-300 audience-card"
-			>
-				<div
-					class="flex justify-center items-center bg-teal/10 mb-4 rounded-xl w-12 h-12"
-				>
-					<svg
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="text-teal"
-					>
-						<polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-						<polyline points="16 7 22 7 22 13" />
-					</svg>
+					<div class="col-span-12 sm:col-span-9">
+						<p class="font-serif text-2xl leading-[1.25] text-ink italic sm:text-3xl">
+							"{question}"
+						</p>
+						<p class="mt-5 max-w-[60ch] text-[0.95rem] leading-[1.6] text-ink-soft sm:text-base">
+							{answer}
+						</p>
+					</div>
 				</div>
-				<h3 class="mb-2 font-rajdhani font-bold text-heading text-lg">Growing SMEs</h3>
-				<p class="text-body text-sm leading-relaxed">
-					Outgrowing spreadsheets and manual bookkeeping? Get real-time financial
-					visibility and tax-efficient structures.
-				</p>
-			</div>
-
-			<div
-				class="group bg-base hover:bg-elevated p-6 border border-divider-subtle hover:border-teal/30 rounded-2xl transition-all duration-300 audience-card"
-			>
-				<div
-					class="flex justify-center items-center bg-teal/10 mb-4 rounded-xl w-12 h-12"
-				>
-					<svg
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="text-teal"
-					>
-						<rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
-						<path d="M9 22v-4h6v4" />
-						<path
-							d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"
-						/>
-					</svg>
-				</div>
-				<h3 class="mb-2 font-rajdhani font-bold text-heading text-lg">
-					Corporations & Cooperatives
-				</h3>
-				<p class="text-body text-sm leading-relaxed">
-					Need reliable audit services, compliance assurance, and strategic financial
-					planning you can count on? That's our specialty.
-				</p>
-			</div>
-
-			<div
-				class="group bg-base hover:bg-elevated p-6 border border-divider-subtle hover:border-teal/30 rounded-2xl transition-all duration-300 audience-card"
-			>
-				<div
-					class="flex justify-center items-center bg-teal/10 mb-4 rounded-xl w-12 h-12"
-				>
-					<svg
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="text-teal"
-					>
-						<path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-						<path d="M6 12v5c3 3 9 3 12 0v-5" />
-					</svg>
-				</div>
-				<h3 class="mb-2 font-rajdhani font-bold text-heading text-lg">
-					Schools & Institutions
-				</h3>
-				<p class="text-body text-sm leading-relaxed">
-					Looking for specialized auditing for educational organizations? We understand
-					the unique requirements of academic institutions.
-				</p>
-			</div>
+			{/each}
 		</div>
 	</div>
 </section>
-
-<style>
-	@keyframes audienceCardIn {
-		from {
-			opacity: 0;
-			transform: translateY(24px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@supports (animation-timeline: view()) {
-		.audience-card {
-			opacity: 0;
-			animation: audienceCardIn 0.6s ease-out forwards;
-			animation-timeline: view();
-			animation-range: entry 0% entry 30%;
-		}
-	}
-</style>

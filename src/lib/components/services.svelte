@@ -1,142 +1,136 @@
 <script lang="ts">
+	import Icon from '@iconify/svelte';
+
 	const services = [
 		{
 			num: '01',
 			title: 'Tax Compliance',
-			description: 'Ensure your business meets all BIR requirements. We handle tax filings, returns, and regulatory compliance.',
-			icon: 'clipboard'
+			description:
+				'BIR filings, returns and regulatory paperwork — kept on time and audit-ready. We translate the tax code into a calendar you can actually live with.',
+			tags: ['Monthly · Quarterly', '1701 · 1702 · 2550', 'Withholding']
 		},
 		{
 			num: '02',
 			title: 'Tax Advisory',
-			description: 'Strategic tax planning to minimize liabilities and maximize savings through tax-efficient structures.',
-			icon: 'lightbulb'
+			description:
+				'Strategic structuring to minimise liabilities, before they become a problem. Tax-efficient planning grounded in current Philippine practice.',
+			tags: ['Structuring', 'Position Papers', 'BIR Letters']
 		},
 		{
 			num: '03',
-			title: 'Business Registrations',
-			description: 'SEC/DTI registration to BIR and local permits — the full process to get your business operational.',
-			icon: 'building'
+			title: 'Business Registration',
+			description:
+				'SEC, DTI, BIR and local permits — the full incorporation process taken end-to-end so you can launch instead of queue.',
+			tags: ['SEC · DTI', 'BIR · COR', 'ATP']
 		},
 		{
 			num: '04',
 			title: 'Management Advisory',
-			description: 'Data-driven insights and strategic advice to improve operations and drive sustainable growth.',
-			icon: 'chart'
+			description:
+				'Reading the numbers as a story about the business. Operational reviews, financial modelling and decisions backed by the ledger.',
+			tags: ['Cash Flow', 'KPI Design', 'Cost Studies']
 		},
 		{
 			num: '05',
 			title: 'System Development',
-			description: 'Custom web and desktop applications tailored to your needs, built with cutting-edge technology.',
-			icon: 'code'
+			description:
+				'Custom web and desktop applications, written by a CPA-led engineering team. The systems we build understand the books they post into.',
+			tags: ['Web · Desktop', 'Internal Tools', 'Migrations']
 		},
 		{
 			num: '06',
 			title: 'Accounting Software',
-			description: 'Streamlined solutions that automate bookkeeping, reporting, and compliance tracking.',
-			icon: 'calculator'
+			description:
+				'Off-the-shelf and bespoke accounting software, configured to your chart of accounts. Bookkeeping, reporting and compliance in one stack.',
+			tags: ['Bookkeeping', 'Reporting', 'Compliance']
 		}
 	];
 </script>
 
-<section id="services" class="relative bg-surface px-5 sm:px-6 py-16 sm:py-28">
-	<div
-		class="absolute inset-0 pointer-events-none"
-		aria-hidden="true"
-		style="background: radial-gradient(ellipse 60% 40% at 30% 60%, rgba(6, 182, 212, 0.04), transparent);"
-	></div>
-
-	<div class="relative mx-auto max-w-6xl">
-		<div class="mb-12 sm:mb-20">
-			<span class="font-rajdhani font-bold text-teal text-sm uppercase tracking-widest">What We Do</span>
-			<h2 class="mt-3 font-rajdhani font-bold text-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-				Our Services
-			</h2>
-			<p class="mt-4 max-w-lg text-body text-lg">
-				Comprehensive solutions that bridge accounting expertise with technological innovation.
-			</p>
+<section
+	id="services"
+	class="relative bg-paper px-6 py-24 sm:px-8 sm:py-36"
+>
+	<div class="mx-auto max-w-[1240px]">
+		<div class="grid grid-cols-12 gap-x-6 gap-y-10 mb-16 sm:mb-24">
+			<div class="col-span-12 md:col-span-4">
+				<div class="flex items-center gap-3">
+					<span class="font-mono text-[11px] tracking-[0.2em] text-seal uppercase">§ Index</span>
+					<span class="h-px flex-1 bg-rule"></span>
+				</div>
+				<p class="mt-6 font-mono text-[11px] tracking-[0.18em] text-ink-muted uppercase">
+					Six pillars · 2025
+				</p>
+			</div>
+			<div class="col-span-12 md:col-span-8">
+				<h2 class="font-serif text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.02] font-light tracking-[-0.02em] text-ink">
+					Services, written like a<br />
+					<em class="font-medium not-italic">table of contents</em>.
+				</h2>
+				<p class="mt-6 max-w-[55ch] text-base leading-[1.6] text-ink-soft sm:text-lg">
+					Six interlocking practice areas. Most clients engage two or three at once —
+					compliance with advisory, registration with software, audit with operational
+					review.
+				</p>
+			</div>
 		</div>
 
-		<div class="gap-px grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 bg-divider-subtle border border-divider-subtle rounded-2xl overflow-hidden">
-			{#each services as service (service.num)}
-				<div class="group relative bg-surface hover:bg-elevated p-5 sm:p-8 transition-all duration-500 service-cell">
-					<span class="top-4 right-6 absolute font-rajdhani font-bold text-white/4 group-hover:text-teal/10 text-5xl transition-all duration-500 pointer-events-none select-none">
-						{service.num}
-					</span>
+		<ol class="border-t border-ink/15 dark:border-rule">
+			{#each services as service, i (service.num)}
+				<li>
+					<a
+						href="#contact"
+						class="group grid grid-cols-12 items-start gap-x-6 gap-y-3 border-b border-rule-subtle py-8 sm:py-10 transition-colors duration-300"
+						style="transition-timing-function: var(--ease-out-strong);"
+					>
+						<div class="col-span-2 sm:col-span-1">
+							<span class="font-mono lining text-sm font-medium text-seal sm:text-base">
+								{service.num}
+							</span>
+						</div>
 
-					<div class="mb-6 text-teal/70 group-hover:text-teal transition-colors duration-300">
-						{#if service.icon === 'clipboard'}
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-								<rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-								<path d="M9 14l2 2 4-4" />
-							</svg>
-						{:else if service.icon === 'lightbulb'}
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-								<path d="M9 18h6" />
-								<path d="M10 22h4" />
-								<path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5" />
-							</svg>
-						{:else if service.icon === 'building'}
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-								<rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
-								<path d="M9 22v-4h6v4" />
-								<path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01" />
-							</svg>
-						{:else if service.icon === 'chart'}
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-								<polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-								<polyline points="16 7 22 7 22 13" />
-							</svg>
-						{:else if service.icon === 'code'}
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-								<polyline points="16 18 22 12 16 6" />
-								<polyline points="8 6 2 12 8 18" />
-								<line x1="14" y1="4" x2="10" y2="20" />
-							</svg>
-						{:else if service.icon === 'calculator'}
-							<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-								<rect x="4" y="2" width="16" height="20" rx="2" />
-								<line x1="8" y1="6" x2="16" y2="6" />
-								<line x1="16" y1="14" x2="16" y2="18" />
-								<path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01" />
-							</svg>
-						{/if}
-					</div>
+						<div class="col-span-10 sm:col-span-7 lg:col-span-6">
+							<h3 class="font-serif text-3xl leading-[1.05] font-light tracking-[-0.015em] text-ink transition-colors duration-300 group-hover:text-seal sm:text-4xl lg:text-[2.75rem]" style="transition-timing-function: var(--ease-out-strong);">
+								{service.title}
+							</h3>
+							<p class="mt-3 max-w-[58ch] text-[0.95rem] leading-[1.55] text-ink-soft sm:text-base">
+								{service.description}
+							</p>
+						</div>
 
-					<h3 class="mb-3 font-rajdhani font-bold text-heading text-lg">
-						{service.title}
-					</h3>
+						<div class="col-span-12 mt-1 flex flex-wrap gap-x-5 gap-y-2 sm:col-span-4 sm:mt-0 sm:flex-col sm:gap-y-2 lg:col-span-5 lg:pl-8">
+							{#each service.tags as tag (tag)}
+								<span class="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
+									{tag}
+								</span>
+							{/each}
+						</div>
 
-					<p class="text-body text-sm leading-relaxed">
-						{service.description}
-					</p>
-
-					<div class="bottom-0 left-0 absolute bg-linear-to-r from-teal to-teal-light w-0 group-hover:w-full h-px transition-all duration-500"></div>
-				</div>
+						{#if i === services.length - 1}{:else}{/if}
+					</a>
+				</li>
 			{/each}
+		</ol>
+
+		<div class="mt-12 flex flex-wrap items-center justify-between gap-6 sm:mt-16">
+			<p class="max-w-[40ch] font-serif text-lg leading-[1.45] text-ink-soft italic">
+				Not sure which pillar maps to your problem? That's usually the answer to start
+				the conversation.
+			</p>
+			<a
+				href="#contact"
+				class="press group inline-flex items-center gap-3 rounded-md border border-seal bg-seal px-5 py-3.5 font-mono text-[11px] tracking-[0.18em] text-paper uppercase shadow-sm transition-all duration-200 hover:bg-seal-deep hover:border-seal-deep hover:shadow-md dark:text-ink"
+			>
+				Brief us
+				<Icon
+					icon="solar:arrow-right-linear"
+					width="14"
+					height="14"
+					class="transition-transform duration-300 group-hover:translate-x-1"
+					style="transition-timing-function: var(--ease-out-strong);"
+					aria-hidden="true"
+				/>
+			</a>
 		</div>
 	</div>
 </section>
-
-<style>
-	@keyframes serviceCardIn {
-		from {
-			opacity: 0;
-			transform: translateY(24px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@supports (animation-timeline: view()) {
-		.service-cell {
-			opacity: 0;
-			animation: serviceCardIn 0.6s ease-out forwards;
-			animation-timeline: view();
-			animation-range: entry 0% entry 30%;
-		}
-	}
-</style>

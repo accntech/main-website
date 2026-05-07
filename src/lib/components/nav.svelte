@@ -1,19 +1,19 @@
 <script lang="ts">
-	import { toggleMode } from 'mode-watcher';
+	import Icon from '@iconify/svelte';
+	import { toggleMode, mode } from 'mode-watcher';
 
 	let mobileMenuOpen = $state(false);
 	let scrolled = $state(false);
 
 	const navLinks = [
 		{ label: 'Services', href: '/#services' },
-		{ label: 'Company', href: '/#company' },
-		{ label: 'About', href: '/#about' },
-		{ label: 'Contact', href: '/#contact' },
+		{ label: 'Profile', href: '/#company' },
+		{ label: 'Founder', href: '/#about' },
 		{ label: 'Apps', href: '/apps' }
 	] as const;
 
 	function handleScroll() {
-		scrolled = window.scrollY > 20;
+		scrolled = window.scrollY > 12;
 	}
 
 	function closeMobileMenu() {
@@ -25,106 +25,122 @@
 
 <nav
 	class={[
-		'fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b',
+		'fixed top-0 left-0 z-50 w-full border-b transition-[background-color,backdrop-filter,border-color] duration-300',
 		scrolled
-			? 'bg-base-90 backdrop-blur-xl border-teal/10 shadow-2xl shadow-black/5 dark:shadow-black/20'
-			: 'bg-transparent border-transparent'
+			? 'border-rule-subtle bg-paper-90 backdrop-blur-xl'
+			: 'border-transparent bg-transparent'
 	]}
+	style="transition-timing-function: var(--ease-out-strong);"
 >
-	<div class="flex justify-between items-center mx-auto px-5 sm:px-6 py-4 sm:py-5 max-w-7xl">
-		<a href="/" class="group relative font-rajdhani font-bold text-heading text-2xl">
-			accoun<span class="text-teal group-hover:text-teal-light transition-colors">tech</span><span class="text-teal">.</span>
+	<div class="flex justify-between items-center mx-auto px-6 sm:px-8 py-4 sm:py-5 max-w-310">
+		<a
+			href="/"
+			class="group inline-flex items-baseline font-sans font-bold text-[1.5rem] lowercase leading-none tracking-[-0.025em]"
+		>
+			<span class="text-ink">accoun</span><span class="text-seal">tech<span>.</span></span>
 		</a>
 
-		<div class="hidden md:flex items-center gap-10">
+		<div class="hidden md:flex items-center gap-9">
 			{#each navLinks as { label, href } (href)}
 				<a
 					{href}
-					class="after:-bottom-1 after:left-0 after:absolute relative after:bg-teal after:w-0 hover:after:w-full after:h-px font-medium text-body hover:text-heading text-sm tracking-wide transition-colors after:transition-all duration-300 after:duration-300"
+					class="font-mono text-[11px] text-ink-muted hover:text-ink uppercase tracking-[0.18em] transition-colors duration-200"
 				>
 					{label}
 				</a>
 			{/each}
-			<button
-				type="button"
-				onclick={toggleMode}
-				aria-label="Toggle theme"
-				class="flex justify-center items-center rounded-full w-9 h-9 text-body hover:text-heading transition-colors duration-300"
-			>
-					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 3l0 18" /><path d="M12 9l4.65 -4.65" /><path d="M12 14.3l7.37 -7.37" /><path d="M12 19.6l8.85 -8.85" /></svg>
-				<span class="sr-only">Toggle theme</span>
-			</button>
-			<a
-				href="/#contact"
-				class="bg-teal hover:bg-teal-light hover:shadow-lg hover:shadow-teal/20 px-5 py-2 rounded-full font-semibold text-navy-dark text-sm text-nowrap transition-all duration-300"
-			>
-				Get Started
-			</a>
+
+			<div class="flex items-center gap-2">
+				<button
+					type="button"
+					onclick={toggleMode}
+					aria-label="Toggle theme"
+					class="flex justify-center items-center rounded-full w-8 h-8 text-ink-muted hover:text-ink transition-colors press"
+				>
+					{#if mode.current === 'dark'}
+						<Icon icon="solar:moon-linear" width="15" height="15" aria-hidden="true" />
+					{:else}
+						<Icon icon="solar:sun-linear" width="15" height="15" aria-hidden="true" />
+					{/if}
+					<span class="sr-only">Toggle theme</span>
+				</button>
+
+				<a
+					href="/#contact"
+					class="group inline-flex items-center gap-2 bg-seal hover:bg-seal-deep shadow-sm px-4 py-2 border border-seal hover:border-seal-deep rounded-md font-mono text-[11px] text-paper dark:text-ink uppercase tracking-[0.16em] transition-all duration-200 press"
+				>
+					Engage
+					<span class="block bg-current w-3 group-hover:w-5 h-px transition-all duration-300" style="transition-timing-function: var(--ease-out-strong);" aria-hidden="true"></span>
+				</a>
+			</div>
 		</div>
 
-		<div class="md:hidden flex items-center gap-2">
+		<div class="md:hidden flex items-center gap-1">
 			<button
 				type="button"
 				onclick={toggleMode}
 				aria-label="Toggle theme"
-				class="flex justify-center items-center rounded-full w-9 h-9 text-body hover:text-heading transition-colors duration-300"
+				class="flex justify-center items-center rounded-full w-9 h-9 text-ink-muted hover:text-ink transition-colors press"
 			>
-					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4.5"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 3l0 18" /><path d="M12 9l4.65 -4.65" /><path d="M12 14.3l7.37 -7.37" /><path d="M12 19.6l8.85 -8.85" /></svg>
-				<span class="sr-only">Toggle theme</span>
+				{#if mode.current === 'dark'}
+					<Icon icon="solar:moon-linear" width="16" height="16" aria-hidden="true" />
+				{:else}
+					<Icon icon="solar:sun-linear" width="16" height="16" aria-hidden="true" />
+				{/if}
 			</button>
-		<button
-			type="button"
-			class="md:hidden z-50 relative flex flex-col justify-center items-center gap-1.5 w-10 h-10"
-			onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
-			aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-			aria-expanded={mobileMenuOpen}
-		>
-			<span
-				class={[
-					'block h-0.5 w-6 rounded-full bg-heading transition-all duration-300 origin-center',
-					mobileMenuOpen && 'translate-y-2 rotate-45'
-				]}
-			></span>
-			<span
-				class={[
-					'block h-0.5 w-6 rounded-full bg-heading transition-all duration-300',
-					mobileMenuOpen && 'scale-x-0 opacity-0'
-				]}
-			></span>
-			<span
-				class={[
-					'block h-0.5 w-6 rounded-full bg-heading transition-all duration-300 origin-center',
-					mobileMenuOpen && '-translate-y-2 -rotate-45'
-				]}
-			></span>
-		</button>
+			<button
+				type="button"
+				class="z-50 relative flex flex-col justify-center items-center gap-1.5 w-10 h-10 press"
+				onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
+				aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+				aria-expanded={mobileMenuOpen}
+			>
+				<span
+					class={[
+						'block h-px w-5 bg-ink transition-transform duration-300',
+						mobileMenuOpen && 'translate-y-0.75 rotate-45'
+					]}
+					style="transition-timing-function: var(--ease-out-strong);"
+				></span>
+				<span
+					class={[
+						'block h-px w-5 bg-ink transition-transform duration-300',
+						mobileMenuOpen && '-translate-y-0.75 -rotate-45'
+					]}
+					style="transition-timing-function: var(--ease-out-strong);"
+				></span>
+			</button>
 		</div>
 	</div>
 
 	<div
 		class={[
-			'overflow-hidden transition-all duration-500 ease-in-out md:hidden',
-			mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+			'grid overflow-hidden transition-[grid-template-rows,opacity] duration-400 md:hidden',
+			mobileMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
 		]}
+		style="transition-timing-function: var(--ease-drawer);"
 	>
-		<div class="bg-base-95 backdrop-blur-xl px-6 py-6 border-divider-subtle border-t">
-			<div class="flex flex-col gap-5">
-				{#each navLinks as { label, href } (href)}
+		<div class="min-h-0">
+			<div class="bg-paper-95 backdrop-blur-xl px-6 py-8 border-rule-subtle border-t">
+				<div class="flex flex-col gap-5">
+					{#each navLinks as { label, href } (href)}
+						<a
+							{href}
+							class="font-serif font-medium text-ink hover:text-seal text-2xl transition-colors"
+							onclick={closeMobileMenu}
+						>
+							{label}
+						</a>
+					{/each}
 					<a
-						{href}
-						class="font-medium text-secondary hover:text-teal text-lg transition-colors duration-200"
+						href="/#contact"
+						class="inline-flex items-center self-start gap-2 bg-seal shadow-sm mt-2 px-5 py-2.5 border border-seal rounded-md font-mono text-[11px] text-paper dark:text-ink uppercase tracking-[0.16em] press"
 						onclick={closeMobileMenu}
 					>
-						{label}
+						Engage
+						<span class="block bg-current w-3 h-px" aria-hidden="true"></span>
 					</a>
-				{/each}
-				<a
-					href="/#contact"
-					class="inline-block bg-teal mt-2 px-6 py-3 rounded-full font-semibold text-navy-dark text-sm text-center text-nowrap"
-					onclick={closeMobileMenu}
-				>
-					Get Started
-				</a>
+				</div>
 			</div>
 		</div>
 	</div>

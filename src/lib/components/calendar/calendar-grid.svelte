@@ -85,8 +85,8 @@
 			<button
 				type="button"
 				class={[
-					'bg-base hover:bg-elevated cursor-pointer transition-colors relative p-2 sm:p-3 min-h-[3rem] sm:min-h-[3.5rem] text-left',
-					day.isSelected && 'bg-teal text-navy-dark',
+					'bg-base hover:bg-elevated cursor-pointer transition-colors relative p-2 sm:p-3 min-h-[3rem] sm:min-h-[3.5rem] text-left focus:outline-none focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset',
+					day.isSelected ? 'bg-teal text-navy-dark focus-visible:ring-navy-dark' : 'focus-visible:ring-teal',
 					day.isToday && !day.isSelected && 'ring-2 ring-teal ring-inset',
 					day.isDimmed && 'opacity-30'
 				]}
