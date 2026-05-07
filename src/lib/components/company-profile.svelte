@@ -32,29 +32,29 @@
 
 <section
 	id="company"
-	class="relative bg-paper px-6 py-24 sm:px-8 sm:py-36"
+	class="relative bg-paper px-6 sm:px-8 py-24 sm:py-36"
 >
-	<div class="mx-auto max-w-[1240px]">
-		<div class="grid grid-cols-12 gap-x-6 gap-y-10 mb-16 sm:mb-20">
+	<div class="mx-auto max-w-310">
+		<div class="gap-x-6 gap-y-10 grid grid-cols-12 mb-16 sm:mb-20">
 			<div class="col-span-12 md:col-span-4">
 				<div class="flex items-center gap-3">
-					<span class="font-mono text-[11px] tracking-[0.2em] text-seal uppercase">⊟ Profile</span>
-					<span class="h-px flex-1 bg-rule"></span>
+					<span class="font-mono text-[11px] text-seal uppercase tracking-[0.2em]">⊟ Profile</span>
+					<span class="flex-1 bg-rule h-px"></span>
 				</div>
-				<p class="mt-6 max-w-[28ch] font-serif text-lg italic leading-[1.45] text-ink-soft">
+				<p class="mt-6 max-w-[28ch] font-serif text-ink-soft text-lg italic leading-[1.45]">
 					AccounTech Business Management Services. A practice rooted in Oriental
 					Mindoro since 2017.
 				</p>
 			</div>
 			<div class="col-span-12 md:col-span-8">
-				<h2 class="font-serif text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.02] font-light tracking-[-0.02em] text-ink">
+				<h2 class="font-serif font-light text-[clamp(2.25rem,5.5vw,4.5rem)] text-ink leading-[1.02] tracking-[-0.02em]">
 					The four-part<br />
 					<em class="font-medium not-italic">colophon</em>.
 				</h2>
 			</div>
 		</div>
 
-		<div class="relative border-t border-ink/15 dark:border-rule" role="tablist">
+		<div class="relative border-ink/15 dark:border-rule border-t" role="tablist">
 			<div class="flex gap-0 overflow-x-auto scrollbar-none">
 				{#each tabs as tab, i (tab)}
 					<button
@@ -63,7 +63,7 @@
 						aria-selected={activeTab === i}
 						id="tab-{i}"
 						onclick={() => (activeTab = i)}
-						class="press group relative shrink-0 px-5 py-5 first:pl-0 sm:px-7 sm:py-6"
+						class="group relative px-5 sm:px-7 py-5 sm:py-6 first:pl-0 press shrink-0"
 					>
 						<div class="flex items-baseline gap-2.5">
 							<span
@@ -98,19 +98,19 @@
 			</div>
 		</div>
 
-		<div class="grid grid-cols-12 gap-x-6 pt-12 sm:pt-16" role="tabpanel" aria-labelledby="tab-{activeTab}">
+		<div class="gap-x-6 grid grid-cols-12 pt-12 sm:pt-16" role="tabpanel" aria-labelledby="tab-{activeTab}">
 			{#key activeTab}
 				<div class="col-span-12 reveal-up">
 					{#if activeTab === 0}
-						<div class="grid grid-cols-12 gap-x-6 gap-y-10">
+						<div class="gap-x-6 gap-y-10 grid grid-cols-12">
 							<div class="col-span-12 sm:col-span-3">
-								<p class="font-mono lining text-5xl font-light text-seal sm:text-7xl">2017</p>
-								<p class="mt-2 font-mono text-[11px] tracking-[0.18em] text-ink-muted uppercase">
+								<p class="font-mono font-light text-seal text-5xl sm:text-7xl lining">2017</p>
+								<p class="mt-2 font-mono text-[11px] text-ink-muted uppercase tracking-[0.18em]">
 									Established
 								</p>
 							</div>
 							<div class="col-span-12 sm:col-span-9">
-								<div class="space-y-5 max-w-[68ch] font-serif text-lg leading-[1.6] text-ink-soft sm:text-xl">
+								<div class="space-y-5 max-w-[68ch] font-serif text-ink-soft text-lg sm:text-xl leading-[1.6]">
 									<p>
 										Established in 2017 as <em>DebitExpress Business Solutions</em>,
 										our journey began modestly in Roxas, Oriental Mindoro — focused on
@@ -123,24 +123,24 @@
 									</p>
 									<p>
 										Now we offer integrated accounting, audit, tax compliance and
-										system development across Oriental Mindoro and beyond — written by
-										CPAs, supported by engineers.
+										system development across Oriental Mindoro and beyond — ledger work
+										and software, one practice.
 									</p>
 								</div>
 							</div>
 						</div>
 					{:else if activeTab === 1}
-						<div class="grid grid-cols-12 gap-x-6 gap-y-10">
+						<div class="gap-x-6 gap-y-10 grid grid-cols-12">
 							<div class="col-span-12 sm:col-span-3">
-								<p class="font-serif text-3xl font-light italic text-seal sm:text-4xl">
+								<p class="font-serif font-light text-seal text-3xl sm:text-4xl italic">
 									Vision
 								</p>
-								<p class="mt-2 font-mono text-[11px] tracking-[0.18em] text-ink-muted uppercase">
+								<p class="mt-2 font-mono text-[11px] text-ink-muted uppercase tracking-[0.18em]">
 									Where we're going
 								</p>
 							</div>
 							<div class="col-span-12 sm:col-span-9">
-								<div class="space-y-5 max-w-[68ch] font-serif text-lg leading-[1.6] text-ink-soft sm:text-xl">
+								<div class="space-y-5 max-w-[68ch] font-serif text-ink-soft text-lg sm:text-xl leading-[1.6]">
 									<p>
 										To be a leading provider of comprehensive business management
 										solutions — accounting, tax, audit and software — for businesses of
@@ -156,17 +156,17 @@
 							</div>
 						</div>
 					{:else if activeTab === 2}
-						<div class="grid grid-cols-12 gap-x-6 gap-y-10">
+						<div class="gap-x-6 gap-y-10 grid grid-cols-12">
 							<div class="col-span-12 sm:col-span-3">
-								<p class="font-serif text-3xl font-light italic text-seal sm:text-4xl">
+								<p class="font-serif font-light text-seal text-3xl sm:text-4xl italic">
 									Mission
 								</p>
-								<p class="mt-2 font-mono text-[11px] tracking-[0.18em] text-ink-muted uppercase">
+								<p class="mt-2 font-mono text-[11px] text-ink-muted uppercase tracking-[0.18em]">
 									What we do daily
 								</p>
 							</div>
 							<div class="col-span-12 sm:col-span-9">
-								<div class="space-y-5 max-w-[68ch] font-serif text-lg leading-[1.6] text-ink-soft sm:text-xl">
+								<div class="space-y-5 max-w-[68ch] font-serif text-ink-soft text-lg sm:text-xl leading-[1.6]">
 									<p>
 										Revolutionise and optimise accounting methodology — helping
 										businesses achieve greater efficiency and accuracy in their
@@ -183,18 +183,18 @@
 							</div>
 						</div>
 					{:else if activeTab === 3}
-						<div class="grid grid-cols-12 gap-x-6 gap-y-2">
+						<div class="gap-x-6 gap-y-2 grid grid-cols-12">
 							{#each values as { title, body }, i (title)}
-								<div class="col-span-12 grid grid-cols-12 gap-x-6 border-b border-rule-subtle py-6 last:border-b-0 sm:col-span-12">
-									<div class="col-span-12 flex items-baseline gap-3 sm:col-span-4">
-										<span class="font-mono lining text-[11px] tracking-[0.16em] text-ink-faint uppercase">
+								<div class="gap-x-6 grid grid-cols-12 col-span-12 sm:col-span-12 py-6 border-rule-subtle border-b last:border-b-0">
+									<div class="flex items-baseline gap-3 col-span-12 sm:col-span-4">
+										<span class="font-mono text-[11px] text-ink-faint uppercase tracking-[0.16em] lining">
 											0{i + 1}
 										</span>
-										<span class="font-serif text-2xl font-light tracking-[-0.01em] text-ink">
+										<span class="font-serif font-light text-ink text-2xl tracking-[-0.01em]">
 											{title}
 										</span>
 									</div>
-									<p class="col-span-12 mt-2 max-w-[58ch] text-[0.95rem] leading-[1.6] text-ink-soft sm:col-span-8 sm:mt-0 sm:text-base">
+									<p class="col-span-12 sm:col-span-8 mt-2 sm:mt-0 max-w-[58ch] text-[0.95rem] text-ink-soft sm:text-base leading-[1.6]">
 										{body}
 									</p>
 								</div>

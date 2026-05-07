@@ -1,65 +1,39 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Static single-page landing site for Accountech, a Philippines-based accounting + technology firm.
 
-## Project Overview
+## Stack
 
-Accountech is a landing page for a professional services firm (accounting + technology) based in the Philippines. It is a fully static, single-page site.
-
-## Tech Stack
-
-- **SvelteKit** with `adapter-node` (prerendered via `prerender = true`)
-- **Svelte 5** using runes (`$state`, `$props`, etc.)
-- **Tailwind CSS v4** via `@tailwindcss/vite` plugin (imported as `@import "tailwindcss"` in `src/app.css`)
-- **mode-watcher** for dark/light mode (defaults to dark)
-- **Zod** for contact form validation
-- **TypeScript** with strict mode
-- **Bun** as the package manager (see `bun.lock`)
+- SvelteKit (`adapter-node`, prerendered) + Svelte 5 runes
+- Tailwind CSS v4 via `@tailwindcss/vite`, imported in `src/app.css`
+- TypeScript (strict), Bun, Zod (contact form), mode-watcher (dark default)
 
 ## Commands
 
 ```bash
-bun run dev          # Start dev server
-bun run build        # Build static site to ./build
-bun run preview      # Preview production build
-bun run check        # Type-check with svelte-check
+bun run dev      # dev server
+bun run build    # static build to ./build
+bun run preview  # preview build
+bun run check    # svelte-check
 ```
 
 ## Architecture
 
-Single-page app: `src/routes/+page.svelte` composes all section components. `+layout.ts` exports `prerender = true` for full static generation.
+- `src/routes/+page.svelte` composes all sections; `+layout.ts` sets `prerender = true`
+- `src/lib/components/` — section components (lowercase filenames, e.g. `hero.svelte`)
+- `src/lib/assets/` — static assets
+- `docs/plans/` — design specs
 
-### Key Directories
+## Styling
 
-- `src/lib/components/` — Section components (nav, hero, services, about, contact, footer), all lowercase filenames
-- `src/lib/assets/` — Static assets like favicon
-- `docs/plans/` — Design specs and planning documents
+- Color tokens: CSS custom properties in `src/app.css` for `:root` + `.dark`, mapped to Tailwind via `@theme inline`. Brand colors (navy, teal) in a separate `@theme` block.
+- Fonts: IBM Plex Sans (body), Rajdhani (headings) — loaded from Google Fonts in `src/app.html`.
 
-### Styling
+## Conventions
 
-Custom color tokens are defined as CSS custom properties in `src/app.css` with light (`:root`) and dark (`.dark`) variants, then mapped to Tailwind via `@theme inline`. Brand colors (navy, teal) are defined in a separate `@theme` block.
+- Lowercase component filenames; `<script lang="ts">` with runes
+- Import from `$lib/`
 
-Fonts: IBM Plex Sans (body) and Rajdhani (headings), loaded from Google Fonts in `src/app.html`.
+## Landing Page Goals
 
-### Conventions
-
-- Component filenames are lowercase (e.g., `hero.svelte`, not `Hero.svelte`)
-- Components use `<script lang="ts">` with Svelte 5 runes
-- Use `$lib/` alias for imports from `src/lib/`
-
-## Landing Page Questions
-
-The landing page should answer these questions for visitors:
-
-1. **What do you do?**
-2. **Who is it for?**
-3. **Why does it matter?**
-4. **Why should I trust you?**
-5. **What are your services?**
-6. **Show me proof.**
-7. **Tell me what to do next.**
-
-## Git Policy
-
-- **Do not commit changes** — never run `git commit` unless the user explicitly asks
-- **Do not add co-author lines** — never include `Co-Authored-By` in commit messages
+Page must answer: what you do, who it's for, why it matters, why trust you, services, proof, next step.

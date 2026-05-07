@@ -4,37 +4,64 @@
 	import Footer from '$lib/components/footer.svelte';
 	import Seo from '$lib/components/seo.svelte';
 	import libroLogo from '$lib/assets/libro-logo.svg';
+	import bentopdfLogo from '$lib/assets/bentopdf-logo.svg';
 
-	const apps = [
+	type Brand = 'libro' | 'bentopdf';
+	type App = {
+		title: string;
+		description: string;
+		href: string;
+		icon: 'calendar' | 'file' | 'list' | 'calculator' | 'book' | 'bentopdf';
+		external?: boolean;
+		brand?: Brand;
+	};
+
+	const apps: App[] = [
 		{
 			title: '2026 BIR Tax Calendar',
 			description:
 				'Interactive calendar with all BIR filing deadlines, form references, and compliance dates for the 2026 tax year.',
 			href: '/apps/tax-calendar',
-			icon: 'calendar' as const
+			icon: 'calendar'
 		},
 		{
 			title: 'VAT Relief Generator',
 			description:
 				'Generate BIR-compliant VAT relief DAT files and reconciliation reports from your Excel template.',
 			href: '/apps/vat-relief',
-			icon: 'file' as const
+			icon: 'file'
 		},
 		{
 			title: 'Top Withholding Agents',
 			description:
 				'Searchable directory of BIR-designated Top Withholding Agents with filtering by name, RDO, type, status, and date.',
 			href: '/apps/top-withholding-agents',
-			icon: 'list' as const
+			icon: 'list'
+		},
+		{
+			title: 'Payroll & Tax Calculators',
+			description:
+				'Compute SSS, PhilHealth, Pag-IBIG, BIR withholding tax, and annual income tax — all five Philippine schedules in one place.',
+			href: '/apps/payroll-calculators',
+			icon: 'calculator'
+		},
+		{
+			title: 'BentoPDF',
+			description:
+				'Free browser-based PDF toolkit — merge, split, compress, and convert PDFs. No signup, unlimited files, runs entirely on your device.',
+			href: 'https://bentopdf.accountech.dev',
+			icon: 'bentopdf',
+			external: true,
+			brand: 'bentopdf'
 		},
 		{
 			title: 'Libro',
 			description:
 				'Simplify your bookkeeping — record journal entries, track your general ledger, generate trial balances, and produce balance sheets in minutes.',
 			href: 'https://libro-app.com/',
-			icon: 'book' as const,
+			icon: 'book',
 			external: true,
-			catppuccin: true
+			brand: 'libro'
 		}
 	];
 
@@ -73,21 +100,34 @@
 					href={app.href}
 					target={app.external ? '_blank' : undefined}
 					rel={app.external ? 'noopener noreferrer' : undefined}
-					class="group border border-divider-subtle bg-surface p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg {app.catppuccin
+					class="group border border-divider-subtle bg-surface p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg {app.brand === 'libro'
 						? 'hover:border-[#179299]/40 hover:shadow-[#179299]/5'
-						: 'hover:border-teal/40 hover:shadow-teal/5'}"
+						: app.brand === 'bentopdf'
+							? 'hover:border-[#6366F1]/40 hover:shadow-[#6366F1]/5'
+							: 'hover:border-teal/40 hover:shadow-teal/5'}"
 				>
 					<div
-						class="flex justify-center items-center mb-5 rounded-xl w-12 h-12 transition-colors duration-300 {app.catppuccin
+						class="flex justify-center items-center mb-5 rounded-xl w-12 h-12 transition-colors duration-300 {app.brand === 'libro'
 							? 'bg-[#179299]/10 group-hover:bg-[#179299]/15'
-							: 'bg-teal/10 group-hover:bg-teal/15'}"
+							: app.brand === 'bentopdf'
+								? 'bg-[#6366F1]/10 group-hover:bg-[#6366F1]/15'
+								: 'bg-teal/10 group-hover:bg-teal/15'}"
 					>
 						{#if app.icon === 'calendar'}
 							<Icon icon="solar:calendar-linear" width="24" height="24" class="text-teal" />
 						{:else if app.icon === 'list'}
 							<Icon icon="solar:list-linear" width="24" height="24" class="text-teal" />
+						{:else if app.icon === 'calculator'}
+							<Icon
+								icon="solar:calculator-minimalistic-linear"
+								width="24"
+								height="24"
+								class="text-teal"
+							/>
 						{:else if app.icon === 'book'}
 							<img src={libroLogo} alt="Libro logo" class="w-7 h-7" />
+						{:else if app.icon === 'bentopdf'}
+							<img src={bentopdfLogo} alt="BentoPDF logo" class="w-8 h-8" />
 						{:else}
 							<Icon icon="solar:document-linear" width="24" height="24" class="text-teal" />
 						{/if}
@@ -99,9 +139,11 @@
 					<p class="mt-2 text-body text-sm leading-relaxed">{app.description}</p>
 
 					<div
-						class="flex items-center gap-1.5 mt-4 font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1 {app.catppuccin
+						class="flex items-center gap-1.5 mt-4 font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1 {app.brand === 'libro'
 							? 'text-[#179299]'
-							: 'text-teal'}"
+							: app.brand === 'bentopdf'
+								? 'text-[#6366F1]'
+								: 'text-teal'}"
 					>
 						{app.external ? 'Visit site' : 'Open app'}
 						{#if app.external}
