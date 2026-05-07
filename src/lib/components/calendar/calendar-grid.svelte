@@ -84,18 +84,40 @@
 			{@const isWeekend = colIndex === 0 || colIndex === 6}
 			<button
 				type="button"
+				aria-pressed={day.isSelected}
+				aria-label={day.isToday ? `Today, ${day.day}` : `${day.day}`}
 				class={[
-					'bg-base hover:bg-elevated cursor-pointer transition-colors relative p-2 sm:p-3 min-h-[3rem] sm:min-h-[3.5rem] text-left focus:outline-none focus-visible:z-10 focus-visible:ring-2 focus-visible:ring-inset',
-					day.isSelected ? 'bg-teal text-navy-dark focus-visible:ring-navy-dark' : 'focus-visible:ring-teal',
-					day.isToday && !day.isSelected && 'ring-2 ring-teal ring-inset',
+					'cursor-pointer transition-colors relative p-2 sm:p-3 min-h-[3rem] sm:min-h-[3.5rem] text-left',
+					'focus:outline-none focus-visible:z-20 focus-visible:ring-2 focus-visible:ring-inset',
+					day.isSelected
+						? 'bg-teal ring-2 ring-inset ring-navy-dark/30 focus-visible:ring-navy-dark'
+						: day.isToday
+							? 'bg-seal-tint hover:bg-elevated focus-visible:ring-teal'
+							: 'bg-base hover:bg-elevated focus-visible:ring-teal',
 					day.isDimmed && 'opacity-30'
 				]}
 				onclick={() => onselect(day.date)}
 			>
+				{#if day.isToday}
+					<span
+						aria-hidden="true"
+						class={[
+							'absolute top-1 right-1 px-1 rounded text-[9px] font-bold uppercase tracking-wider leading-[1.4]',
+							day.isSelected ? 'bg-navy-dark/25 text-navy-dark' : 'bg-teal text-navy-dark'
+						]}
+					>Today</span>
+				{/if}
+
 				<span
 					class={[
-						'text-sm font-medium',
-						day.isSelected ? 'text-navy-dark font-bold' : isWeekend ? 'text-muted' : 'text-heading'
+						'tabular',
+						day.isSelected
+							? 'text-navy-dark font-bold text-base'
+							: day.isToday
+								? 'text-teal font-bold text-sm'
+								: isWeekend
+									? 'text-muted text-sm font-medium'
+									: 'text-heading text-sm font-medium'
 					]}
 				>
 					{day.day}
@@ -104,7 +126,7 @@
 				{#if day.hasDeadlines || day.isHoliday}
 					<div class="absolute bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1">
 						{#if day.hasDeadlines}
-							<span class={['w-3 h-1.5 rounded-sm', day.isSelected ? 'bg-cyan-200' : 'bg-teal']}></span>
+							<span class={['w-3 h-1.5 rounded-sm', day.isSelected ? 'bg-navy-dark' : 'bg-teal']}></span>
 						{/if}
 						{#if day.isHoliday}
 							<span class="w-3 h-1.5 rounded-sm bg-rose-400"></span>

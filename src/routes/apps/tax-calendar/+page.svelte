@@ -20,7 +20,6 @@
 			? `${currentYear}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
 			: `${currentYear}-01-01`
 	);
-	let shouldScrollToPanel = $state(false);
 	let searchQuery = $state('');
 	let activeFilters: SvelteSet<ActionType> = new SvelteSet();
 
@@ -91,7 +90,6 @@
 
 	function selectDate(date: string) {
 		selectedDate = date;
-		shouldScrollToPanel = true;
 		const month = parseInt(date.split('-')[1], 10) - 1;
 		if (month !== currentMonth) currentMonth = month;
 	}
@@ -112,14 +110,6 @@
 		searchQuery = '';
 		activeFilters.clear();
 	}
-
-	$effect(() => {
-		if (selectedDate && shouldScrollToPanel && typeof window !== 'undefined') {
-			shouldScrollToPanel = false;
-			const el = document.getElementById('deadline-panel');
-			el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-		}
-	});
 
 	const jsonLd = {
 		'@context': 'https://schema.org',
