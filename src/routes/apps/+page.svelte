@@ -79,6 +79,8 @@
 <Seo
 	title="Apps | AccounTech"
 	description="Explore AccounTech's suite of tools and resources designed for Philippine tax compliance, accounting workflows, and business operations."
+	ogImage="https://accountech.dev/og-apps.png"
+	ogImageAlt="AccounTech Apps — tools and resources for Philippine tax compliance and accounting workflows."
 	{jsonLd}
 />
 

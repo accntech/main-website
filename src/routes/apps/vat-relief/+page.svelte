@@ -109,6 +109,8 @@
 <Seo
 	title="VAT Relief Generator | AccounTech"
 	description="Generate BIR-compliant VAT relief DAT files and reconciliation reports. Upload your Excel template and download everything as a ZIP."
+	ogImage="https://accountech.dev/og-vat-relief.png"
+	ogImageAlt="VAT Relief Generator — produce BIR-compliant DAT files and reconciliation reports from an Excel template."
 	{jsonLd}
 />
 

@@ -137,6 +137,8 @@
 <Seo
 	title="2026 BIR Tax Calendar | AccounTech"
 	description="Interactive 2026 BIR Tax Calendar with all filing deadlines, form references, and compliance dates. Never miss a BIR deadline."
+	ogImage="https://accountech.dev/og-tax-calendar.png"
+	ogImageAlt="2026 BIR Tax Calendar — interactive calendar of every Philippine BIR filing deadline and form."
 	{jsonLd}
 />
 

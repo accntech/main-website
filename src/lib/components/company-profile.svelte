@@ -63,7 +63,7 @@
 						aria-selected={activeTab === i}
 						id="tab-{i}"
 						onclick={() => (activeTab = i)}
-						class="group relative px-5 sm:px-7 py-5 sm:py-6 first:pl-0 press shrink-0"
+						class="group relative px-4 sm:px-7 py-4 sm:py-6 first:pl-0 press shrink-0"
 					>
 						<div class="flex items-baseline gap-2.5">
 							<span
@@ -86,11 +86,8 @@
 							</span>
 						</div>
 						<span
-							class={[
-								'absolute bottom-0 left-0 h-px bg-seal transition-[width] duration-400',
-								activeTab === i ? 'w-full' : 'w-0'
-							]}
-							style="transition-timing-function: var(--ease-out-strong);"
+							class="tab-rule"
+							data-active={activeTab === i}
 							aria-hidden="true"
 						></span>
 					</button>
@@ -98,7 +95,7 @@
 			</div>
 		</div>
 
-		<div class="gap-x-6 grid grid-cols-12 pt-12 sm:pt-16" role="tabpanel" aria-labelledby="tab-{activeTab}">
+		<div class="gap-x-6 grid grid-cols-12 pt-10 sm:pt-16" role="tabpanel" aria-labelledby="tab-{activeTab}">
 			{#key activeTab}
 				<div class="col-span-12 reveal-up">
 					{#if activeTab === 0}
@@ -206,3 +203,22 @@
 		</div>
 	</div>
 </section>
+
+<style>
+	.tab-rule {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: var(--seal);
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 360ms var(--ease-out-strong);
+		will-change: transform;
+	}
+
+	.tab-rule[data-active='true'] {
+		transform: scaleX(1);
+	}
+</style>

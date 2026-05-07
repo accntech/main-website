@@ -66,6 +66,8 @@
 <Seo
 	title="PhilHealth Premium Calculator | AccounTech"
 	description="Compute the PhilHealth premium at the 5% rate effective 2026 — straight 50/50 employer-employee split with floor and ceiling."
+	ogImage="https://accountech.dev/og-philhealth.png"
+	ogImageAlt="PhilHealth Premium Calculator — 5% rate effective 2026 with 50/50 employer-employee split."
 	{jsonLd}
 />
 

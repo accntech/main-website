@@ -61,6 +61,8 @@
 <Seo
 	title="Payroll & Tax Calculators | AccounTech"
 	description="Philippine payroll and tax calculators — SSS, PhilHealth, Pag-IBIG, BIR withholding tax, and annual income tax under TRAIN Law."
+	ogImage="https://accountech.dev/og-payroll-calculators.png"
+	ogImageAlt="Philippine payroll and tax calculators — SSS, PhilHealth, Pag-IBIG, withholding tax, and annual income tax."
 	{jsonLd}
 />
 

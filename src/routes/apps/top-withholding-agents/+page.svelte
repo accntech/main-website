@@ -244,6 +244,8 @@
 <Seo
 	title="Top Withholding Agents | AccounTech"
 	description="Searchable directory of BIR-designated Top Withholding Agents in the Philippines. Filter by name, RDO, type, status, or publication date."
+	ogImage="https://accountech.dev/og-top-withholding-agents.png"
+	ogImageAlt="Top Withholding Agents — searchable BIR directory with RDO, type, status, and date filters."
 	{jsonLd}
 />
 

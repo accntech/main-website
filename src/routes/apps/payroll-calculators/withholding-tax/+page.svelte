@@ -3,6 +3,7 @@
 	import Nav from '$lib/components/nav.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Seo from '$lib/components/seo.svelte';
+	import PeriodToggle from '$lib/components/payroll/period-toggle.svelte';
 	import {
 		computeWithholdingTax,
 		PAYROLL_PERIOD_LABELS,
@@ -82,6 +83,8 @@
 <Seo
 	title="BIR Withholding Tax Calculator | AccounTech"
 	description="BIR revised withholding tax for compensation under TRAIN Law — daily, weekly, semi-monthly, and monthly tables."
+	ogImage="https://accountech.dev/og-withholding-tax.png"
+	ogImageAlt="BIR Withholding Tax Calculator — daily, weekly, semi-monthly, and monthly TRAIN Law tables."
 	{jsonLd}
 />
 
@@ -142,26 +145,11 @@
 			<div class="space-y-5">
 				<div>
 					<span class="block mb-2 font-medium text-body text-sm">Payroll period</span>
-					<div
-						class="inline-flex bg-elevated p-1 border border-divider-subtle rounded-xl"
-						role="radiogroup"
-						aria-label="Payroll period"
-					>
-						{#each periodOptions as opt (opt.value)}
-							<button
-								type="button"
-								role="radio"
-								aria-checked={period === opt.value}
-								onclick={() => (period = opt.value)}
-								class="px-4 py-2 rounded-lg font-medium text-sm transition-colors {period ===
-								opt.value
-									? 'bg-teal text-navy-dark'
-									: 'text-body hover:text-heading'}"
-							>
-								{opt.label}
-							</button>
-						{/each}
-					</div>
+					<PeriodToggle
+						bind:value={period}
+						options={periodOptions}
+						ariaLabel="Payroll period"
+					/>
 				</div>
 
 				<label class="block">
@@ -245,26 +233,12 @@
 				<h2 class="font-rajdhani font-bold text-heading text-2xl">
 					{PAYROLL_PERIOD_LABELS[period]} table
 				</h2>
-				<div
-					class="inline-flex bg-elevated p-1 border border-divider-subtle rounded-xl"
-					role="radiogroup"
-					aria-label="Switch payroll period"
-				>
-					{#each periodOptions as opt (opt.value)}
-						<button
-							type="button"
-							role="radio"
-							aria-checked={period === opt.value}
-							onclick={() => (period = opt.value)}
-							class="px-3 py-1.5 rounded-lg font-medium text-xs transition-colors {period ===
-							opt.value
-								? 'bg-teal text-navy-dark'
-								: 'text-body hover:text-heading'}"
-						>
-							{opt.label}
-						</button>
-					{/each}
-				</div>
+				<PeriodToggle
+					bind:value={period}
+					options={periodOptions}
+					size="sm"
+					ariaLabel="Switch payroll period"
+				/>
 			</div>
 
 			<ul class="md:hidden flex flex-col gap-2.5" aria-label="Brackets">

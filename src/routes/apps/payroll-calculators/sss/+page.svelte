@@ -53,6 +53,8 @@
 <Seo
 	title="SSS Contribution Calculator | AccounTech"
 	description="Compute the Philippine SSS contribution from monthly compensation — Regular SS, MPF, and EC components, with the full 2025 schedule."
+	ogImage="https://accountech.dev/og-sss.png"
+	ogImageAlt="SSS Contribution Calculator — Regular SS, MPF, and EC components on the 2025 schedule."
 	{jsonLd}
 />
 

@@ -118,7 +118,8 @@
 	title="Ogie Galicia — CV | AccounTech"
 	description="Curriculum vitae of Ogie Galicia, Certified Public Accountant and tech entrepreneur from the Philippines."
 	ogType="profile"
-	ogImage="https://res.cloudinary.com/accountech/image/upload/c_crop,g_face,w_500,h_500/v1771235077/iuatksezjs7zfdgobo1m.png"
+	ogImage="https://accountech.dev/og-cv.png"
+	ogImageAlt="Ogie Galicia — Certified Public Accountant. Work experience, education, and contact details."
 	{jsonLd}
 />
 

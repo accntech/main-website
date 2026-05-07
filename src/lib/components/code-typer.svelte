@@ -249,7 +249,7 @@ assert(trial.debit === trial.credit);`,
 			{/each}
 		</div>
 
-		<pre class="min-h-[16em] flex-1 overflow-x-auto px-4 py-4 text-ink"><code>{#each tokens as tok, i (i)}<span class="tok tok-{tok.type}">{tok.text}</span>{/each}<span class="caret">▍</span></code></pre>
+		<pre class="min-h-[12em] sm:min-h-[16em] flex-1 overflow-x-auto px-4 py-4 text-ink"><code>{#each tokens as tok, i (i)}<span class="tok tok-{tok.type}">{tok.text}</span>{/each}<span class="caret">▍</span></code></pre>
 	</div>
 </div>
 

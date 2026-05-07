@@ -20,8 +20,7 @@
 				alternateName: 'AccounTech',
 				url: 'https://accountech.dev',
 				logo: 'https://accountech.dev/favicon.png',
-				image:
-					'https://res.cloudinary.com/accountech/image/upload/v1771235077/iuatksezjs7zfdgobo1m.png',
+				image: 'https://accountech.dev/og-image.png',
 				description:
 					'Where Accounting Meets Technology. Comprehensive accounting, tax compliance, advisory, and system development services in Oriental Mindoro, Philippines.',
 				foundingDate: '2017',
@@ -106,8 +105,7 @@
 				'@id': 'https://accountech.dev/#founder',
 				name: 'Ogie Galicia',
 				jobTitle: 'Founder & Certified Public Accountant',
-				image:
-					'https://res.cloudinary.com/accountech/image/upload/v1771235077/iuatksezjs7zfdgobo1m.png',
+				image: 'https://accountech.dev/og-image.png',
 				description:
 					'Licensed Certified Public Accountant in the Philippines. Founder of AccounTech, bridging traditional accounting practices with modern technology. Speaker and trainer on accounting and taxation.',
 				worksFor: { '@id': 'https://accountech.dev/#organization' },

@@ -69,6 +69,8 @@
 <Seo
 	title="Pag-IBIG Contribution Calculator | AccounTech"
 	description="Compute the HDMF Pag-IBIG mandatory contribution under Circular 460 — low-tier and standard rates with the ₱10,000 fund salary cap."
+	ogImage="https://accountech.dev/og-pagibig.png"
+	ogImageAlt="Pag-IBIG Contribution Calculator — HDMF Circular 460 low-tier and standard rates."
 	{jsonLd}
 />
 

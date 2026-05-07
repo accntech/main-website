@@ -68,6 +68,8 @@
 <Seo
 	title="BIR Annual Income Tax Calculator | AccounTech"
 	description="BIR annual income tax under TRAIN Law — six-bracket schedule effective 2023 onwards with effective rate breakdown."
+	ogImage="https://accountech.dev/og-annual-income-tax.png"
+	ogImageAlt="BIR Annual Income Tax Calculator — six-bracket TRAIN Law schedule with effective rate breakdown."
 	{jsonLd}
 />
 

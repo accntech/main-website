@@ -147,31 +147,35 @@
 
 			<div class="col-span-12 lg:col-span-8">
 				{#if success}
-					<div class="rounded-xl border border-seal/30 bg-seal-tint p-10">
+					<div class="rounded-xl border border-seal/30 bg-seal-tint p-6 sm:p-10">
 						<p class="font-mono text-[11px] tracking-[0.18em] text-seal uppercase">
 							Received
 						</p>
-						<p class="mt-4 font-serif text-2xl leading-[1.35] text-ink sm:text-3xl">
+						<p class="mt-4 font-serif text-xl leading-[1.4] text-ink sm:text-3xl sm:leading-[1.35]">
 							Thank you. Your message is in our inbox — we'll be in touch shortly.
 						</p>
 					</div>
 				{:else}
 					{#if errorMessage}
-						<div class="mb-8 rounded-xl border border-red-500/30 bg-red-500/5 p-6">
+						<div class="mb-8 rounded-xl border border-red-500/30 bg-red-500/5 p-5 sm:p-6">
 							<p class="font-mono text-[11px] tracking-[0.18em] text-red-500 uppercase">
 								Couldn't send
 							</p>
-							<p class="mt-2 font-serif text-lg leading-[1.4] text-ink">{errorMessage}</p>
+							<p class="mt-2 font-serif text-base leading-[1.4] text-ink sm:text-lg">{errorMessage}</p>
 						</div>
 					{/if}
 
-					<form onsubmit={handleSubmit} class="space-y-10" novalidate>
-						<div class="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2">
+					<form onsubmit={handleSubmit} class="space-y-7 sm:space-y-10" novalidate>
+						<div class="grid grid-cols-1 gap-x-10 gap-y-7 sm:gap-y-10 sm:grid-cols-2">
 							<div class="form-field">
 								<label for="contact-name" class="form-label">Name</label>
 								<input
 									id="contact-name"
 									type="text"
+									name="name"
+									autocomplete="name"
+									autocapitalize="words"
+									spellcheck="false"
 									bind:value={name}
 									disabled={sending}
 									placeholder="—"
@@ -186,6 +190,12 @@
 								<input
 									id="contact-email"
 									type="email"
+									name="email"
+									autocomplete="email"
+									autocapitalize="none"
+									autocorrect="off"
+									spellcheck="false"
+									inputmode="email"
 									bind:value={email}
 									disabled={sending}
 									placeholder="—"
@@ -202,6 +212,8 @@
 							<input
 								id="contact-subject"
 								type="text"
+								name="subject"
+								autocomplete="off"
 								bind:value={subject}
 								disabled={sending}
 								placeholder="—"
@@ -216,6 +228,8 @@
 							<label for="contact-message" class="form-label">Message</label>
 							<textarea
 								id="contact-message"
+								name="message"
+								autocomplete="off"
 								bind:value={message}
 								disabled={sending}
 								placeholder="—"
@@ -227,14 +241,14 @@
 							{/if}
 						</div>
 
-						<div class="flex flex-wrap items-center justify-between gap-6 pt-4">
-							<p class="max-w-[36ch] font-mono text-[11px] leading-[1.5] tracking-[0.14em] text-ink-muted uppercase">
+						<div class="flex flex-col-reverse sm:flex-row sm:flex-wrap items-stretch sm:items-center sm:justify-between gap-6 pt-2 sm:pt-4">
+							<p class="max-w-[36ch] font-mono text-[10px] sm:text-[11px] leading-[1.5] tracking-[0.14em] text-ink-muted uppercase">
 								By writing to us, you agree to be contacted about your inquiry.
 							</p>
 							<button
 								type="submit"
 								disabled={sending}
-								class="press group inline-flex items-center gap-3 rounded-md border border-seal bg-seal px-6 py-3.5 font-mono text-[11px] tracking-[0.18em] text-paper uppercase shadow-sm transition-all duration-200 hover:bg-seal-deep hover:border-seal-deep hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50 dark:text-ink"
+								class="press group inline-flex w-full sm:w-auto items-center justify-center sm:justify-start gap-3 rounded-md border border-seal bg-seal px-6 py-3.5 font-mono text-[11px] tracking-[0.18em] text-paper uppercase shadow-sm transition-[background-color,border-color,box-shadow,opacity] duration-200 hover:bg-seal-deep hover:border-seal-deep hover:shadow-md disabled:cursor-not-allowed disabled:opacity-50 dark:text-ink"
 							>
 								{#if sending}
 									Sending…

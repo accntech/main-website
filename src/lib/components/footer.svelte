@@ -12,7 +12,7 @@
 
 <footer class="relative bg-paper">
 	<div class="mx-auto px-6 sm:px-8 pt-20 sm:pt-28 pb-10 sm:pb-12 max-w-310">
-		<div class="gap-x-6 gap-y-12 grid grid-cols-12 pt-12 border-ink/15 dark:border-rule border-t">
+		<div class="gap-x-6 gap-y-10 sm:gap-y-12 grid grid-cols-12 pt-10 sm:pt-12 border-ink/15 dark:border-rule border-t">
 			<div class="col-span-12 md:col-span-5">
 				<a
 					href="/"
@@ -20,11 +20,11 @@
 				>
 					<span class="text-ink">accoun</span><span class="text-seal">tech<span>.</span></span>
 				</a>
-				<p class="mt-6 max-w-[42ch] font-serif text-ink-soft text-lg italic leading-[1.45]">
+				<p class="mt-5 max-w-[42ch] font-serif text-ink-soft text-base sm:text-lg italic leading-[1.5] sm:leading-[1.45]">
 					Where accounting meets technology. A licensed CPA practice that also writes
 					the software it depends on.
 				</p>
-				<p class="mt-6 font-mono text-[11px] text-ink-muted uppercase tracking-[0.16em]">
+				<p class="mt-5 font-mono text-[10.5px] sm:text-[11px] text-ink-muted uppercase tracking-[0.16em]">
 					Established 2017 · Oriental Mindoro · Philippines
 				</p>
 			</div>
@@ -33,10 +33,13 @@
 				<h3 class="font-mono text-[11px] text-ink-muted uppercase tracking-[0.18em]">
 					Sections
 				</h3>
-				<ul class="space-y-3 mt-5">
+				<ul class="mt-4 sm:mt-5 -mx-1">
 					{#each quickLinks as { label, href } (href)}
 						<li>
-							<a {href} class="font-serif text-ink hover:text-seal text-lg transition-colors rule-grow">
+							<a
+								{href}
+								class="inline-flex items-center font-serif text-ink hover:text-seal text-lg transition-colors rule-grow px-1 py-1.5"
+							>
 								{label}
 							</a>
 						</li>
@@ -48,18 +51,24 @@
 				<h3 class="font-mono text-[11px] text-ink-muted uppercase tracking-[0.18em]">
 					Direct
 				</h3>
-				<ul class="space-y-3 mt-5 font-serif text-ink text-lg">
+				<ul class="mt-4 sm:mt-5 -mx-1 font-serif text-ink text-lg">
 					<li>
-						<a href="mailto:accntech.dev@gmail.com" class="hover:text-seal transition-colors rule-grow">
+						<a
+							href="mailto:accntech.dev@gmail.com"
+							class="inline-flex items-center hover:text-seal transition-colors rule-grow break-all px-1 py-1.5"
+						>
 							accntech.dev@gmail.com
 						</a>
 					</li>
 					<li>
-						<a href="tel:+639952942417" class="hover:text-seal transition-colors rule-grow">
+						<a
+							href="tel:+639952942417"
+							class="inline-flex items-center hover:text-seal transition-colors rule-grow px-1 py-1.5"
+						>
 							+63 995 294 2417
 						</a>
 					</li>
-					<li class="text-ink-soft">Roxas · Mansalay</li>
+					<li class="text-ink-soft px-1 py-1.5">Roxas · Mansalay</li>
 				</ul>
 			</div>
 		</div>

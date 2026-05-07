@@ -76,21 +76,21 @@
 		</div>
 
 		<ol class="border-t border-ink/15 dark:border-rule">
-			{#each services as service, i (service.num)}
+			{#each services as service (service.num)}
 				<li>
 					<a
 						href="#contact"
-						class="group grid grid-cols-12 items-start gap-x-6 gap-y-3 border-b border-rule-subtle py-8 sm:py-10 transition-colors duration-300"
+						class="group grid grid-cols-12 items-start gap-x-6 gap-y-3 border-b border-rule-subtle py-7 sm:py-10 transition-colors duration-300"
 						style="transition-timing-function: var(--ease-out-strong);"
 					>
-						<div class="col-span-2 sm:col-span-1">
+						<div class="col-span-2 sm:col-span-1 pt-1 sm:pt-2">
 							<span class="font-mono lining text-sm font-medium text-seal sm:text-base">
 								{service.num}
 							</span>
 						</div>
 
-						<div class="col-span-10 sm:col-span-7 lg:col-span-6">
-							<h3 class="font-serif text-3xl leading-[1.05] font-light tracking-[-0.015em] text-ink transition-colors duration-300 group-hover:text-seal sm:text-4xl lg:text-[2.75rem]" style="transition-timing-function: var(--ease-out-strong);">
+						<div class="col-span-9 sm:col-span-7 lg:col-span-6">
+							<h3 class="font-serif text-[1.65rem] leading-[1.1] font-light tracking-[-0.015em] text-ink transition-colors duration-300 group-hover:text-seal sm:text-4xl sm:leading-[1.05] lg:text-[2.75rem]" style="transition-timing-function: var(--ease-out-strong);">
 								{service.title}
 							</h3>
 							<p class="mt-3 max-w-[58ch] text-[0.95rem] leading-[1.55] text-ink-soft sm:text-base">
@@ -98,28 +98,30 @@
 							</p>
 						</div>
 
+						<div class="col-span-1 sm:hidden flex justify-end pt-2 text-ink-faint group-hover:text-seal transition-colors duration-300">
+							<Icon icon="solar:arrow-right-linear" width="16" height="16" aria-hidden="true" />
+						</div>
+
 						<div class="col-span-12 mt-1 flex flex-wrap gap-x-5 gap-y-2 sm:col-span-4 sm:mt-0 sm:flex-col sm:gap-y-2 lg:col-span-5 lg:pl-8">
 							{#each service.tags as tag (tag)}
-								<span class="font-mono text-[11px] tracking-[0.16em] text-ink-muted uppercase">
+								<span class="font-mono text-[10.5px] tracking-[0.16em] text-ink-muted uppercase sm:text-[11px]">
 									{tag}
 								</span>
 							{/each}
 						</div>
-
-						{#if i === services.length - 1}{:else}{/if}
 					</a>
 				</li>
 			{/each}
 		</ol>
 
-		<div class="mt-12 flex flex-wrap items-center justify-between gap-6 sm:mt-16">
+		<div class="mt-10 flex flex-col-reverse sm:flex-row sm:flex-wrap items-stretch sm:items-center sm:justify-between gap-6 sm:mt-16">
 			<p class="max-w-[40ch] font-serif text-lg leading-[1.45] text-ink-soft italic">
 				Not sure which pillar maps to your problem? That's usually the answer to start
 				the conversation.
 			</p>
 			<a
 				href="#contact"
-				class="press group inline-flex items-center gap-3 rounded-md border border-seal bg-seal px-5 py-3.5 font-mono text-[11px] tracking-[0.18em] text-paper uppercase shadow-sm transition-all duration-200 hover:bg-seal-deep hover:border-seal-deep hover:shadow-md dark:text-ink"
+				class="press group inline-flex justify-center sm:justify-start items-center gap-3 rounded-md border border-seal bg-seal px-5 py-3.5 font-mono text-[11px] tracking-[0.18em] text-paper uppercase shadow-sm transition-[background-color,border-color,box-shadow] duration-200 hover:bg-seal-deep hover:border-seal-deep hover:shadow-md dark:text-ink"
 			>
 				Brief us
 				<Icon
