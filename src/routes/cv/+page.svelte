@@ -123,7 +123,7 @@
 	{jsonLd}
 />
 
-<header class="top-0 left-0 z-50 fixed bg-base-95 backdrop-blur-xl border-divider-subtle border-b w-full">
+<header class="top-0 left-0 z-50 fixed bg-base-95 backdrop-blur-xl border-divider-subtle border-b w-full cv-print-hide">
 	<div class="flex justify-between items-center mx-auto px-5 sm:px-6 py-3 max-w-4xl">
 		<a
 			href="/"
@@ -136,19 +136,34 @@
 			/>
 			Home
 		</a>
-		<button
-			type="button"
-			onclick={toggleMode}
-			aria-label="Toggle theme"
-			class="flex justify-center items-center rounded-full w-9 h-9 text-body hover:text-heading transition-colors duration-300"
-		>
-			{#if mode.current === 'dark'}
-				<Icon icon="solar:moon-linear" width="18" height="18" aria-hidden="true" />
-			{:else}
-				<Icon icon="solar:sun-linear" width="18" height="18" aria-hidden="true" />
-			{/if}
-			<span class="sr-only">Toggle theme</span>
-		</button>
+		<div class="flex items-center gap-1 sm:gap-2">
+			<a
+				href="/cv.pdf"
+				download="Ogie-Galicia-CV.pdf"
+				aria-label="Download CV as PDF"
+				class="group inline-flex items-center gap-2 hover:bg-teal/10 px-3 sm:px-3.5 py-1.5 sm:py-2 border border-teal/30 hover:border-teal/60 rounded-full font-medium text-teal hover:text-teal-dark text-xs sm:text-sm transition-all duration-300"
+			>
+				<Icon
+					icon="solar:download-minimalistic-linear"
+					class="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-y-0.5 duration-300"
+				/>
+				<span class="hidden sm:inline">Download PDF</span>
+				<span class="sm:hidden">PDF</span>
+			</a>
+			<button
+				type="button"
+				onclick={toggleMode}
+				aria-label="Toggle theme"
+				class="flex justify-center items-center rounded-full w-9 h-9 text-body hover:text-heading transition-colors duration-300"
+			>
+				{#if mode.current === 'dark'}
+					<Icon icon="solar:moon-linear" width="18" height="18" aria-hidden="true" />
+				{:else}
+					<Icon icon="solar:sun-linear" width="18" height="18" aria-hidden="true" />
+				{/if}
+				<span class="sr-only">Toggle theme</span>
+			</button>
+		</div>
 	</div>
 </header>
 
@@ -398,5 +413,103 @@
 	.skill-bar {
 		width: 0%;
 		animation: skillGrow 1s ease-out 0.6s forwards;
+	}
+
+	@page {
+		size: A4;
+		margin: 12mm 14mm 14mm;
+	}
+
+	@media print {
+		:global(html),
+		:global(html.dark) {
+			--paper: #ffffff !important;
+			--surface: #f5f3ee !important;
+			--elevated: #ebe8e0 !important;
+			--ink: #0e1b2e !important;
+			--ink-soft: #2a3548 !important;
+			--ink-muted: #51596b !important;
+			--ink-faint: #7d8493 !important;
+			--rule: rgba(14, 27, 46, 0.22) !important;
+			--rule-subtle: rgba(14, 27, 46, 0.12) !important;
+			--paper-90: #ffffff !important;
+			--paper-95: #ffffff !important;
+			--seal: #1f6f7a !important;
+			--seal-bright: #2c8a96 !important;
+			--seal-deep: #145059 !important;
+			--seal-tint: rgba(31, 111, 122, 0.14) !important;
+			--seal-tint-soft: rgba(31, 111, 122, 0.05) !important;
+			color-scheme: light !important;
+			background: #ffffff !important;
+			-webkit-print-color-adjust: exact !important;
+			print-color-adjust: exact !important;
+		}
+
+		:global(body) {
+			background: #ffffff !important;
+			color: #2a3548 !important;
+			-webkit-print-color-adjust: exact !important;
+			print-color-adjust: exact !important;
+		}
+
+		.cv-print-hide {
+			display: none !important;
+		}
+
+		main {
+			padding: 0.5rem 0.5rem 0 !important;
+			max-width: 100% !important;
+		}
+
+		main :global(hr) {
+			margin-top: 0.9rem !important;
+			margin-bottom: 0.9rem !important;
+		}
+
+		main :global(h2) {
+			margin-bottom: 0.65rem !important;
+		}
+
+		main :global(img) {
+			width: 5.25rem !important;
+			height: 5.25rem !important;
+		}
+
+		main :global(.ml-16) {
+			margin-left: 2.25rem !important;
+		}
+
+		main :global(.mb-8) {
+			margin-bottom: 0.85rem !important;
+		}
+
+		main :global(.space-y-4 > * + *) {
+			margin-top: 0.45rem !important;
+		}
+
+		main :global(.space-y-3 > * + *) {
+			margin-top: 0.35rem !important;
+		}
+
+		main :global(.mt-16) {
+			margin-top: 0.9rem !important;
+			padding-top: 0.55rem !important;
+		}
+
+		.cv-animate {
+			opacity: 1 !important;
+			animation: none !important;
+			transform: none !important;
+		}
+
+		.skill-bar {
+			width: var(--target-width) !important;
+			animation: none !important;
+		}
+
+		:global(a) {
+			color: inherit !important;
+			text-decoration: none !important;
+		}
 	}
 </style>
