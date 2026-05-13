@@ -3,6 +3,12 @@
 	import { toggleMode, mode } from 'mode-watcher';
 	import Seo from '$lib/components/seo.svelte';
 
+	let scrolled = $state(false);
+
+	function handleScroll() {
+		scrolled = window.scrollY > 12;
+	}
+
 	const experience = [
 		{
 			year: 'NOW',
@@ -123,49 +129,53 @@
 	{jsonLd}
 />
 
-<header class="top-0 left-0 z-50 fixed bg-base-95 backdrop-blur-xl border-divider-subtle border-b w-full cv-print-hide">
-	<div class="flex justify-between items-center mx-auto px-5 sm:px-6 py-3 max-w-4xl">
+<svelte:window onscroll={handleScroll} />
+
+<nav
+	class={[
+		'cv-print-hide fixed top-0 left-0 z-50 w-full border-b transition-[background-color,backdrop-filter,border-color] duration-300',
+		scrolled
+			? 'border-rule-subtle bg-paper-90 backdrop-blur-xl'
+			: 'border-transparent bg-transparent'
+	]}
+	style="transition-timing-function: var(--ease-out-strong);"
+>
+	<div class="flex justify-between items-center mx-auto px-6 sm:px-8 py-3 sm:py-5 max-w-310">
 		<a
 			href="/"
-			class="group inline-flex items-center gap-2 font-medium text-body hover:text-teal text-sm transition-colors duration-300"
-			aria-label="Back to home"
+			class="group inline-flex items-baseline -mx-2 px-2 py-1.5 font-sans font-bold text-[1.5rem] lowercase leading-none tracking-[-0.025em]"
+			aria-label="Back to accountech home"
 		>
-			<Icon
-				icon="solar:arrow-left-linear"
-				class="w-4 h-4 transition-transform group-hover:-translate-x-1 duration-300"
-			/>
-			Home
+			<span class="text-ink">accoun</span><span class="text-seal">tech<span>.</span></span>
 		</a>
-		<div class="flex items-center gap-1 sm:gap-2">
-			<a
-				href="/cv.pdf"
-				download="Ogie-Galicia-CV.pdf"
-				aria-label="Download CV as PDF"
-				class="group inline-flex items-center gap-2 hover:bg-teal/10 px-3 sm:px-3.5 py-1.5 sm:py-2 border border-teal/30 hover:border-teal/60 rounded-full font-medium text-teal hover:text-teal-dark text-xs sm:text-sm transition-all duration-300"
-			>
-				<Icon
-					icon="solar:download-minimalistic-linear"
-					class="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-y-0.5 duration-300"
-				/>
-				<span class="hidden sm:inline">Download PDF</span>
-				<span class="sm:hidden">PDF</span>
-			</a>
+
+		<div class="flex items-center gap-2">
 			<button
 				type="button"
 				onclick={toggleMode}
 				aria-label="Toggle theme"
-				class="flex justify-center items-center rounded-full w-9 h-9 text-body hover:text-heading transition-colors duration-300"
+				class="flex justify-center items-center rounded-full w-8 h-8 text-ink-muted hover:text-ink transition-colors press"
 			>
 				{#if mode.current === 'dark'}
-					<Icon icon="solar:moon-linear" width="18" height="18" aria-hidden="true" />
+					<Icon icon="solar:moon-linear" width="15" height="15" aria-hidden="true" />
 				{:else}
-					<Icon icon="solar:sun-linear" width="18" height="18" aria-hidden="true" />
+					<Icon icon="solar:sun-linear" width="15" height="15" aria-hidden="true" />
 				{/if}
 				<span class="sr-only">Toggle theme</span>
 			</button>
+
+			<a
+				href="/cv.pdf"
+				download="Ogie-Galicia-CV.pdf"
+				aria-label="Download CV as PDF"
+				class="flex justify-center items-center rounded-full w-8 h-8 text-ink-muted hover:text-ink transition-colors press"
+			>
+				<Icon icon="solar:download-minimalistic-linear" width="15" height="15" aria-hidden="true" />
+				<span class="sr-only">Download CV as PDF</span>
+			</a>
 		</div>
 	</div>
-</header>
+</nav>
 
 <main class="mx-auto px-5 sm:px-6 pt-24 pb-20 max-w-4xl">
 	<section class="flex sm:flex-row flex-col items-center sm:items-start gap-6 sm:gap-8 cv-animate" style="animation-delay: 0ms">
