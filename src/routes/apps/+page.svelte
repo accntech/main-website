@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import Nav from '$lib/components/nav.svelte';
 	import Footer from '$lib/components/footer.svelte';
 	import Seo from '$lib/components/seo.svelte';
@@ -10,11 +12,9 @@
 	type App = {
 		title: string;
 		description: string;
-		href: string;
-		icon: 'calendar' | 'file' | 'list' | 'calculator' | 'book' | 'bentopdf';
-		external?: boolean;
+		icon: 'calendar' | 'file' | 'list' | 'calculator' | 'book' | 'bentopdf' | 'barcode';
 		brand?: Brand;
-	};
+	} & ({ external: true; href: string } | { external?: false; href: Pathname });
 
 	const apps: App[] = [
 		{
@@ -30,6 +30,13 @@
 				'Generate BIR-compliant VAT relief DAT files and reconciliation reports from your Excel template.',
 			href: '/apps/vat-relief',
 			icon: 'file'
+		},
+		{
+			title: 'Barcode Generator',
+			description:
+				'Create printable barcode labels from an Excel workbook. Download the template, preview your labels, and generate a PDF in your browser.',
+			href: '/apps/barcode-generator',
+			icon: 'barcode'
 		},
 		{
 			title: 'Top Withholding Agents',
@@ -99,7 +106,7 @@
 		<div class="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 			{#each apps as app (app.href)}
 				<a
-					href={app.href}
+					href={app.external ? app.href : resolve(app.href)}
 					target={app.external ? '_blank' : undefined}
 					rel={app.external ? 'noopener noreferrer' : undefined}
 					class="group border border-divider-subtle bg-surface p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg {app.brand === 'libro'
@@ -126,6 +133,8 @@
 								height="24"
 								class="text-teal"
 							/>
+						{:else if app.icon === 'barcode'}
+							<Icon icon="solar:barcode-linear" width="24" height="24" class="text-teal" />
 						{:else if app.icon === 'book'}
 							<img src={libroLogo} alt="Libro logo" class="w-7 h-7" />
 						{:else if app.icon === 'bentopdf'}

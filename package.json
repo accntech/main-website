@@ -10,12 +10,16 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"cv:pdf": "bun run scripts/generate-cv-pdf.ts"
+		"cv:pdf": "bun run scripts/generate-cv-pdf.ts",
+		"test": "node --test tests/*.test.ts",
+		"barcode:template": "bun run scripts/generate-barcode-template.ts"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-node": "^5.5.3",
 		"@sveltejs/kit": "^2.50.2",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
+		"@types/node": "^24",
+		"@types/pdfmake": "^0.3.3",
 		"svelte": "^5.49.2",
 		"svelte-check": "^4.3.6",
 		"typescript": "^5.9.3",
@@ -26,8 +30,10 @@
 		"@tailwindcss/vite": "^4.1.18",
 		"bits-ui": "^2.15.6",
 		"exceljs": "^4.4.0",
+		"jsbarcode": "^3.12.3",
 		"jszip": "^3.10.1",
 		"mode-watcher": "^1.1.0",
+		"pdfmake": "^0.3.11",
 		"tailwindcss": "^4.1.18",
 		"zod": "^4.3.6"
 	}
